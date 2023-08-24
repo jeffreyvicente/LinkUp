@@ -2,8 +2,14 @@
   background-color: #252525 !important;
   color: #F9FBEF;
   font-family: "nunito", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-style: italic;
+}
+
+
+
+.NavLink:hover {
+  color: #4CC2EC !important;
 }
 
 .brand-color {
@@ -11,4 +17,8 @@
   font-family: "nunito", sans-serif;
 font-weight: 700;
 font-style: italic;
+}
+
+.brand-color:hover {
+ color: #F46036 !important;
 }

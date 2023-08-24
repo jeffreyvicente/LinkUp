@@ -16,7 +16,7 @@ function Navigation() {
               className="d-inline-block align-top"
             />{' '}
             LinkUp</Navbar.Brand>
-                <Nav.Link href="#login">Login | Sign Up</Nav.Link>
+                <Nav.Link href="#login" className="NavLink">Login | Sign Up</Nav.Link>
             </Container>
         </Navbar>
     );
