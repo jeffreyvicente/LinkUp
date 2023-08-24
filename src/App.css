@@ -1,3 +1,12 @@
+html, body {
+  background-color: #252525;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+
 .Navigation {
   background-color: #252525 !important;
   color: #F9FBEF;
@@ -5,8 +14,6 @@
   font-weight: 700;
   font-style: italic;
 }
-
-
 
 .NavLink:hover {
   color: #4CC2EC !important;
@@ -22,3 +29,68 @@ font-style: italic;
 .brand-color:hover {
  color: #F46036 !important;
 }
+
+/* Login Landing Page Styles */
+
+.login-landing {
+  background-color: #252525;
+  color:#F9FBEF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: -50px;
+  overflow: hidden;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-left: -55px;
+}
+
+.app-logo {
+  width: 300px;
+  height: auto;
+  padding: 0;
+  margin-right: -40px;
+}
+
+.landing-name{
+  font-size: 100px;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+color: #F9FBEF
+}
+
+.p-landing {
+  font-size: 30px;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+color: #F9FBEF;
+}
+
+.landing-button {
+  font-family: "nunito", sans-serif !important;
+font-weight: 700 !important;
+font-style: italic;
+font-size: 20px !important;
+height: 50px;
+width: 200px;
+background-color: #23216C !important;
+color: #F9FBEF !important;
+border: 2px solid #F9FBEF !important;
+}
+
+.landing-button:hover {
+  background-color: #4CC2EC !important;
+}
+
+
