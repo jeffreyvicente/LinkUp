@@ -13,6 +13,7 @@ html, body {
   font-family: "nunito", sans-serif;
   font-weight: 700;
   font-style: italic;
+  border-bottom: solid 3px #F46036
 }
 
 .NavLink:hover {
@@ -24,10 +25,6 @@ html, body {
   font-family: "nunito", sans-serif;
 font-weight: 700;
 font-style: italic;
-}
-
-.brand-color:hover {
- color: #F46036 !important;
 }
 
 /* Login Landing Page Styles */
@@ -93,4 +90,67 @@ border: 2px solid #F9FBEF !important;
   background-color: #4CC2EC !important;
 }
 
+/* Home Page Styles */
 
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+ background-color: #252525;
+ color: #F9FBEF;
+}
+
+.home-h1 {
+  font-size: 75px;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+}
+
+.home-logo {
+width: 175px;
+height: auto;
+margin-left: -30px;
+margin-bottom: -10px;
+}
+
+.home-h3 {
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.home-title {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-left: -55px;
+  margin-bottom: -10px;
+}
+
+.home-events {
+  background-color: #23216C;
+  color:#F9FBEF;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+border: solid 5px #4CC2EC;
+}
+
+.home-events:hover {
+  background-color: #F46036;
+  border-color: #D7263D;
+}
+
+.home-events-link {
+  text-decoration: none; 
+  color: inherit; 
+  display: block; 
+}
