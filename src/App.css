@@ -154,3 +154,91 @@ border: solid 5px #4CC2EC;
   color: inherit; 
   display: block; 
 }
+
+/* Auth Modal Styles */
+
+.auth-model .nav-tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.auth-model .nav-item {
+  flex: 1;
+}
+
+.modal-body  {
+  background-color: #252525;
+  color: #F9FBEF;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+.modal-footer {
+  background-color: #252525 !important;
+  color: #F9FBEF !important;
+}
+
+.modal-button {
+  border: solid 3px #D7263D !important;
+  background-color: #F46036 !important;
+  color: #F9FBEF !important;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.modal-button:hover {
+  border: solid 3px #4CC2EC !important;
+  background-color: #23216C !important;
+}
+
+.modal-header {
+  background-color: #252525;
+  color: #F9FBEF;
+  border-bottom: solid 3px #F46036 !important;
+}
+.auth-model .modal-dialog {
+  background-color: #F46036 !important;
+  margin-top: 200px;
+  max-width: 800px;
+  max-height: 600px;
+  border: solid 3px #F46036;
+  border-radius: 12px;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  color: #F9FBEF !important; 
+  background-color: transparent !important; 
+  border-color: #F9FBEF !important;
+  border-bottom: transparent !important;
+}
+
+.nav-tabs .nav-link {
+  border-bottom: 1px solid #F9FBEF !important;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom: none !important;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+.auth-model .form-control:focus {
+  border: solid 1px #F46036 !important;          
+  box-shadow: 0 0 0 0.2rem #F46036 !important;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-color: transparent !important;
+}
+
+.nav {
+  --bs-nav-link-color: #F9FBEF !important;
+    --bs-nav-link-hover-color: #F9FBEF !important;
+}
+
