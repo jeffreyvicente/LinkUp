@@ -10,8 +10,8 @@ function App() {
     <Router>
     <div>
       <Navigation />
-    {/*  <LoginLanding /> */}
-     <Home />
+    <LoginLanding />
+    {/*  <Home /> */}
     </div>
     </Router>
   );
