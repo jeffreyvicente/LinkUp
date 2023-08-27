@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_PAST_EVENTS } from '../utils/queries';
+
 
 export default function Profile() {
 
@@ -8,7 +12,19 @@ export default function Profile() {
         console.log("Create button clicked");
         
     };
+
+    const userID = "FakeUserID";
+    const olderThanDate = "2023-08-01"
+
+    const {loading, data} = useQuery(QUERY_PAST_EVENTS, {
+        variables:{userID, olderThan: olderThanDate}
+    });
+
+    if (loading){
+        return <div>Loading...</div>
+    }
     
+
     
     return(
         <div className='profileBody container p-3'>
