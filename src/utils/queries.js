@@ -1,26 +1,32 @@
 import { gql } from '@apollo/client';
 
 
-
+// Query to get a single event
+// Used on the events page
 export const QUERY_SINGLE_EVENT = gql`
-    query getSingleEvent($eventId: ID!) {
-        event(eventId: $eventId){
-            _id
-            title
-            description
-            location
-            date
-            type
-            organizer {
-                _id
-                name
-            }
-
-        }
+  query getSingleEvent($eventId: ID!) {
+    event(eventId: $eventId){
+      _id
+      title
+      description
+      location
+      date
+      type
+      organizer {
+        _id
+        name
+      }
     }
-
-
+  }
 `;
+
+export const QUERY_PAST_EVENT = gql`
+  query
+
+
+`; 
+
+
 
 
 /*
