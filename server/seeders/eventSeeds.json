@@ -1,0 +1,90 @@
+ [
+    {
+        "title": "Music Fest 2023",
+        "description": "A grand music fest with top artists.",
+        "location": "Central Park, NY",
+        "date": "new Date(2023, 10, 15)",
+        "type": "music",
+        "organizer": "users[0]._id"
+    },
+    {
+        "title": "Food Expo",
+        "description": "Taste food from around the world.",
+        "location": "Convention Center, LA",
+        "date": "new Date(2023, 11, 1)",
+        "type": "food",
+        "organizer": "users[1]._id"
+    },
+    {
+        "title": "Lollapalooza",
+        "description": "Join us for this amazing music festival.",
+        "location": "Chicago, Illinois",
+        "date": "new Date(2023, 9, 28)",
+        "type": "music",
+        "organizer": "users[2]._id"
+    },
+    {
+        "title": "Burning Man",
+        "description": "This is an iconic counterculture event.",
+        "location": "Black Rock Deser, Nevada",
+        "date": "new Date(2023, 9, 4)",
+        "type": "others",
+        "organizer": "users[3]._id"
+    },
+    {
+        "title": "New Years Eve Party",
+        "description": "Amazing party to bring in the new year.",
+        "location": "Times Square, NY",
+        "date": "new Date(2023, 12, 31)",
+        "type": "party",
+        "organizer": "users[4]._id"
+    },
+    {
+        "title": "Halloween Party",
+        "description": "Get groovy with all the other ghouls and goblins.",
+        "location": "Austin, TX",
+        "date": "new Date(2023, 10, 31)",
+        "type": "party",
+        "organizer": "users[5]._id"
+    },
+    {
+        "title": "Art Exhibit",
+        "description": "Rembrandt, Monet, Picasso, and many more",
+        "location": "Los Angeles, CA",
+        "date": "new Date(2023, 11, 5)",
+        "type": "others",
+        "organizer": "users[6]._id"
+    },
+    {
+        "title": "Food Fight",
+        "description": "Join us for the biggest food fight ever.",
+        "location": "Austin, TX",
+        "date": "new Date(2023, 10, 21)",
+        "type": "others",
+        "organizer": "users[7]._id"
+    },
+    {
+        "title": "Tech Conference 2023",
+        "description": "Join us for the biggest tech conference of the year.",
+        "location": "TechExpo Center, San Francisco",
+        "date": "new Date(2023, 10, 15",
+        "type": "others",
+        "organizer": "users[8]._id"
+    },
+    {
+        "title": "MusicFest 2023",
+        "description": "Enjoy a weekend of live music performances.",
+        "location": "Harmony Park, Austin",
+        "date": "new Date(2023, 11, 8)",
+        "type": "music",
+        "organizer": "users[9]._id"
+    },
+    {
+        "title": "Fitness & Wellness Expo",
+        "description": "Explore the latest trends in fitness.",
+        "location": "FitZone Arena, Los Angeles",
+        "date": "new Date(2023, 9, 2)",
+        "type": "others",
+        "organizer": "users[2]._id"
+    }
+]
