@@ -26,10 +26,44 @@ export const QUERY_PAST_EVENT = gql`
 
 `; 
 
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      events {
+        _id
+        title
+        description
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      name
+      email
+      thoughts {
+        _id
+        title
+        description
+        date
+      }
+    }
+  }
+`;
+
 
 
 
 /*
+
+
 
 export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
