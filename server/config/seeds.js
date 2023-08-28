@@ -208,7 +208,7 @@ db.once('open', async () => {
             name: "Heather Hamilton",
             email: "heather.h@example.com",
             password: "pass1234567890",
-            birthday: new Date(1988-1-11),
+            birthday: new Date("1988-1-11"),
             events: [events[9]._id]
         }
     ]);
