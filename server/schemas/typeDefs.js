@@ -13,10 +13,10 @@ const typeDefs = gql`
 
     type User {
         _id: ID!
-        name: String!
+        fullName: String!
+        username: String!
         email: String!
         password: String!
-        birthday: String
     }
 
     type Auth {
@@ -32,7 +32,7 @@ const typeDefs = gql`
 
     type Mutation {
         createEvent(title: String!, description: String!, location: String!, date: String!, type: String!): Event
-        createUser(name: String!, email: String!, password: String!, birthday: String): Auth!
+        createUser(fullName: String!, username: String!, email: String!, password: String!): Auth!
         login(email: String!, password: String!): Auth!
     }
 `;
