@@ -3,19 +3,19 @@ import BingMaps from '../components/Map'
 import Container from 'react-bootstrap/Container';
 
 
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
+import { QUERY_SINGLE_EVENT } from '../utils/queries';
 
 export default function Events() {
     
     const donateClick = () => {
-       
-        console.log("Donate button clicked");
-        
+        console.log("Donate button clicked");     
     };
 
     const rsvpClick = () => {
-       
         console.log("Attend button clicked");
-        
     };
 
     const [showModal, setShowModal] = useState(false);
@@ -28,10 +28,20 @@ export default function Events() {
       setShowModal(false);
     };
 
-    
-    
-    
-    
+    //Query code to pull the single event data
+    //Code should be like 18stu in 22State
+
+    const { eventId } = useParams();
+
+    const {loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+        variables: {eventId: eventId},
+    });
+
+    const event = data?.event || {};
+
+    if (loading){
+        return <div>Loading...</div>
+    }
     return (
         
 
@@ -39,10 +49,9 @@ export default function Events() {
         <Container fluid className="events-container">
 
             <div className ="eventHeader m-2 ">
-                <h1 className="eventName">TacoCon 2023</h1>
-                <h4 className="eventDate ">WEDNESDAY, OCTOBER 18, 2023 AT 8 PM</h4>
-                <h5 className="eventLocation ">1 AT&T Way, Arlington, TX 76011</h5>
-
+                <h1 className="eventName">Title: {event.title}</h1>
+                <h4 className="eventDate ">Date: {event.date}</h4>
+                <h5 className="eventLocation ">Location: {event.location}</h5>
             </div>
             
 
@@ -53,12 +62,8 @@ export default function Events() {
                         <div className ="detailsSection">
                         <h4 className="text-left">Details</h4>
                             <p>700 people attending</p>
-                            <p>Event Hosted By Richard Nguyen</p>
-                            <p>Join us for the ultimate taco extravaganza at TacoCon 2023, where taco lovers from around the world gather to indulge in the finest flavors, 
-                                creative combinations, and culinary innovation that the taco universe has to offer.
-                                
-                            TacoCon 2023 is not just an event; it's a celebration of all things taco! Whether you're a casual taco enthusiast or a die-hard taco aficionado, 
-                            this event promises an unforgettable experience that tantalizes your taste buds and showcases the rich tapestry of taco culture.    
+                            <p>Event Hosted By {event.organizer.name} </p>
+                            <p> description : {event.description}
                                 
                             </p>
                         </div>
@@ -90,6 +95,8 @@ export default function Events() {
                 </div>
             </div>
 
+
+            {/* Pop up modal when a user RSVPs */}
             <div className={`modal ${showModal ? 'show' : ''}`} tabIndex="-1" style={{ display: showModal ? 'block' : 'none' }}>
                 <div className="modal-dialog">
                     <div className="modal-content">

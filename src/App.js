@@ -11,9 +11,12 @@ function App() {
     <Router>
     <div>
       <Navigation />
+
     {/* <LoginLanding /> */}
     {/*  <Home /> */}
-    <Events />
+    {/*<Events /> */}
+    <Checkout />
+
     </div>
     </Router>
   );
