@@ -1,5 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const Event = require('./Event');
 
 const userSchema = new Schema({
     name: {
@@ -19,9 +21,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
         },
-        birthday: {
+    birthday: {
             type: Date,
         },
+    events: [Event.schema],
+    
 });
 
 userSchema.pre('save', async function (next) {
@@ -36,6 +40,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
