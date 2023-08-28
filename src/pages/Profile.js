@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import {Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_PAST_EVENTS } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
+import Auth from '../utils/auth';
 
 export default function Profile() {
 
@@ -13,16 +15,55 @@ export default function Profile() {
         
     };
 
+    //Logic to grab user and user events
+
+    const {username: userParam} = useParams();
+
+    const {loading, data} = useQuery(userParam ? QUERY_USER: QUERY_ME, {
+        variables: { username: userParam },
+    });
+
+
+    const user = data?.me || data?.user || {};
+
+    // navigate to personal profile page if username is yours
+    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+        return <Navigate to="/me" />;
+    }
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+    
+    if (!user?.username) {
+        return (
+            <h4>
+                You need to be logged in to see this. Use the navigation links above to
+                sign up or log in!
+            </h4>
+        );
+    }
+
+
+    //The moon is just like sun, it is big!
+    // console.log(user.thoughts[0].thoughtText);
+
+
+
+    /*
     const userID = "FakeUserID";
     const olderThanDate = "2023-08-01"
 
     const {loading, data} = useQuery(QUERY_PAST_EVENTS, {
-        variables:{userID, olderThan: olderThanDate}
+        variables:{userID, olderThan: olderThanDate},
     });
 
     if (loading){
         return <div>Loading...</div>
     }
+    */
+   
+
     
 
     
