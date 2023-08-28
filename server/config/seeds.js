@@ -145,7 +145,6 @@ db.once('open', async () => {
             username: 'johndoe',
             email: 'john.doe@example.com',
             password: 'password123',
-            birthday: new Date("1990-0-1"),
             events:  [events[0]._id]
         },
         {
@@ -153,7 +152,6 @@ db.once('open', async () => {
             username: 'janesmith',
             email: 'jane.smith@example.com',
             password: 'password123',
-            birthday: new Date("1992-1-15"),
             events: [events[1]._id, events[15]._id, events[16]._id]
         },
         {
@@ -161,7 +159,6 @@ db.once('open', async () => {
             username: "andrewa",
             email: "andrew.a@example.com",
             password: "password123",
-            birthday: new Date("1991-8-15"),
             events: [events[2]._id, events[11]._id]
         },
         {
@@ -169,7 +166,6 @@ db.once('open', async () => {
             username: "bradb",
             email: "brad.b@example.com",
             password: "password1234",
-            birthday: new Date("1988-10-21"),
             events: [events[3]._id]
         },
         {
@@ -177,7 +173,6 @@ db.once('open', async () => {
             username: "carlc",
             email: "carl.c@example.com",
             password: "pass12345",
-            birthday: new Date("1994-10-31"),
             events: [events[4]._id, events[14]._id]
         },
         {
@@ -185,7 +180,6 @@ db.once('open', async () => {
             username: "davidd",
             email: "david.d@example.com",
             password: "pass123456",
-            birthday: new Date("1986, 9, 15"),
             events: [events[5]._id, events[12]._id]
         },
         {
@@ -193,7 +187,6 @@ db.once('open', async () => {
             username: "ericae",
             email: "erica.e@example.com",
             password: "pass1234567",
-            birthday: new Date("1977-12-21"),
             events: [events[6]._id]
     
         },
@@ -202,7 +195,6 @@ db.once('open', async () => {
             username: "frankf",
             email: "frank.f@example.com",
             password: "pass12345678",
-            birthday: new Date("1984-11-7"),
             events: [events[7]._id]
         },
         {
@@ -210,7 +202,6 @@ db.once('open', async () => {
             username: "gregg",
             email: "greg.g@example.com",
             password: "pass123456789",
-            birthday: new Date("1979-5-27"),
             events: [events[8]._id, events[13]._id]
         },
         {
@@ -218,7 +209,6 @@ db.once('open', async () => {
             username: "heatherh",
             email: "heather.h@example.com",
             password: "pass1234567890",
-            birthday: new Date("1988-1-11"),
             events: [events[9]._id]
         }
     ]);
