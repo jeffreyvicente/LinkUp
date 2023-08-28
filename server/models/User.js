@@ -27,9 +27,6 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
         },
-    birthday: {
-            type: Date,
-        },
     events: [Event.schema],
     
 });
