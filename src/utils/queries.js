@@ -20,11 +20,7 @@ export const QUERY_SINGLE_EVENT = gql`
   }
 `;
 
-export const QUERY_PAST_EVENT = gql`
-  query
 
-
-`; 
 
 export const QUERY_USER = gql`
   query user($username: String!) {
