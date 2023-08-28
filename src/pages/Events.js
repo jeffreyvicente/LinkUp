@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BingMaps from '../components/Map'
-
+import Container from 'react-bootstrap/Container';
 
 
 import { useParams } from 'react-router-dom';
@@ -46,7 +46,7 @@ export default function Events() {
         
 
 
-        <div className = "container mt-4 ">
+        <Container fluid className="events-container">
 
             <div className ="eventHeader m-2 ">
                 <h1 className="eventName">Title: {event.title}</h1>
@@ -55,12 +55,12 @@ export default function Events() {
             </div>
             
 
-            <div className="container pt-5 ">
+            <div className="container pt-5">
                 <div className="row">
                     <div className="col-8">
-                        
-                        <h4 className="text-left">Details</h4>  
+                         
                         <div className ="detailsSection">
+                        <h4 className="text-left">Details</h4>
                             <p>700 people attending</p>
                             <p>Event Hosted By {event.organizer.name} </p>
                             <p> description : {event.description}
@@ -69,7 +69,7 @@ export default function Events() {
                         </div>
 
                         <div className='detailButtonDiv text-center'>
-                            <input className="btn btn-primary w-25" type="button" value="RSVP" onClick={openModal}/>
+                            <input className="btn btn-primary w-25 rsvp-button" type="button" value="RSVP" onClick={openModal}/>
                         </div>
                         
                         
@@ -78,10 +78,9 @@ export default function Events() {
                     <div className="col-4">
 
                         <h4 className="text-left">Donate</h4>
+                        <p>Chip in to help fund this event:</p>
                         <div>
-                            <input className="btn btn-primary w-100" type="button" value="Donate" onClick={donateClick}/>
-                           
-                            
+                            <input className="btn btn-primary w-100 donate-button" type="button" value="Donate" onClick={donateClick}/>
                         </div>
                         <div className = "mapSection mt-3">
                             <BingMaps/>
@@ -101,13 +100,13 @@ export default function Events() {
             <div className={`modal ${showModal ? 'show' : ''}`} tabIndex="-1" style={{ display: showModal ? 'block' : 'none' }}>
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <div className="modal-header">
+                        <div className="rsvp-modal-header">
                             <h5 className="modal-title">Thanks for RSVPing to the event</h5>
                             
                         </div>
                        
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={closeModal}>
+                            <button type="button" className="btn btn-secondary modal-close" onClick={closeModal}>
                                 Close
                             </button>
                         </div>
@@ -117,7 +116,7 @@ export default function Events() {
 
 
             
-        </div>
+        </Container>
 
 
     );

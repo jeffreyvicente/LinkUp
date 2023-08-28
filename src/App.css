@@ -13,7 +13,9 @@ html, body {
   font-family: "nunito", sans-serif;
   font-weight: 700;
   font-style: italic;
-  border-bottom: solid 3px #F46036
+  border-bottom: solid 3px #F46036;
+  position: sticky !important;
+  top: 0;
 }
 
 .NavLink:hover {
@@ -242,3 +244,76 @@ font-style: italic;
     --bs-nav-link-hover-color: #F9FBEF !important;
 }
 
+/* Events Page Styles */
+
+.events-container {
+  background-color: #252525;
+  color: #F9FBEF;
+  height: 100vh; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.detailsSection {
+  background-color: #F46036;
+border: 5px solid #D7263D; 
+  color:#F9FBEF; 
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.rsvp-button {
+  margin: 10px;
+  background-color: #23216C !important;
+  border: solid 3px #4CC2EC !important;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.rsvp-button:hover {
+  background-color: #F46036 !important;
+  border: solid 3px #D7263D !important;
+}
+
+.donate-button {
+  background-color: #23216C !important;
+  border: solid 3px #4CC2EC !important;
+  font-family: "nunito", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.donate-button:hover {
+  background-color: #F46036 !important;
+  border: solid 3px #D7263D !important;
+}
+
+.modal-content {
+  border: solid 3px #F46036 !important;
+  border-radius: 12px;
+}
+
+.rsvp-modal-header {
+  background-color: #252525;
+  color: #F9FBEF;
+  padding: 18px;
+}
+
+.modal-close {
+  background-color: #23216C !important;
+  border: solid 3px #4CC2EC !important;
+}
+
+.modal-close:hover {
+  background-color: #F46036 !important;
+  border: solid 3px #D7263D !important;
+}
