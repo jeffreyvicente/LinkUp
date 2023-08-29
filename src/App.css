@@ -16,6 +16,7 @@ html, body {
   border-bottom: solid 3px #F46036;
   position: sticky !important;
   top: 0;
+  z-index: 1000;
 }
 
 .NavLink:hover {
@@ -158,6 +159,7 @@ border: solid 5px #4CC2EC;
 }
 
 /* Auth Modal Styles */
+
 
 .auth-model .nav-tabs {
   display: flex;
@@ -316,4 +318,73 @@ font-style: italic;
 .modal-close:hover {
   background-color: #F46036 !important;
   border: solid 3px #D7263D !important;
+}
+
+.mapSection {
+border: solid 3px #F46036 !important;
+}
+
+/* Profile Styles */
+
+.profile-container {
+  background-color: #252525;
+  color: #F9FBEF;
+  height: 100vh; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "nunito", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.event-create {
+  background-color: #23216C !important;
+  border: solid 3px #4CC2EC !important;
+}
+
+.event-create:hover {
+  background-color: #F46036 !important;
+  border: solid 3px #D7263D !important;
+}
+
+.current-events {
+  border-bottom: 2px solid #4CC2EC !important;
+  background-color: #4CC2EC !important;
+}
+
+.current-event {
+  background-color: #23216C !important;
+  border-bottom: 1px solid #4CC2EC !important;
+  border-right: 3px solid #4CC2EC !important;
+  border-top: 3px solid #4CC2EC !important;
+  border-left: 3px solid #4CC2EC !important;
+  color:#F9FBEF !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.3rem;
+}
+
+.past-events {
+  border-bottom: 2px solid #D7263D !important;
+  background-color: #D7263D !important;
+}
+
+.past-event {
+  background-color: #F46036 !important;
+  border-bottom: 1px solid #D7263D !important;
+  border-right: 3px solid #D7263D !important;
+  border-top: 3px solid #D7263D !important;
+  border-left: 3px solid #D7263D !important;
+  color:#F9FBEF !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.3rem;
 }

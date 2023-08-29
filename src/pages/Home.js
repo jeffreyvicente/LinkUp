@@ -10,7 +10,7 @@ function Home() {
        {
         title: "Placeholder Event Name",
         description: "This is a placeholder for a short description.",
-        cost: "free"
+        cost: "$0"
        },
        {
         title: "Placeholder Event Name 2",
@@ -19,7 +19,7 @@ function Home() {
        },
        {
         title: "Placeholder Event Name 3",
-        description: "This is a placeholder for a short description.",
+        description: "This is a placeholder for a short description. I am testing my new input to see what happens when i add more characters.",
         cost: "$100"
        },
        {
@@ -28,6 +28,10 @@ function Home() {
         cost: "$100"
        },
     ];
+
+    const truncateDescription = (desc, limit = 50) => {
+        return desc.length > limit ? `${desc.substring(0, limit)}...` : desc;
+    };
 
     return (
         <Container fluid className="home-container">
@@ -48,7 +52,7 @@ function Home() {
                     <Link to={`/event/${id}`} className="home-events-link">
                     <div className="home-events">
                     <h4>{event.title}</h4>
-                    <p>{event.description}</p>
+                    <p>{truncateDescription(event.description)}</p>
                     <h5>{event.cost}</h5>
                     </div>
                     </Link>

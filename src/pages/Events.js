@@ -41,11 +41,9 @@ export default function Events() {
 
     if (loading){
         return <div>Loading...</div>
-    }
+    } 
     return (
-        
-
-
+     
         <Container fluid className="events-container">
 
             <div className ="eventHeader m-2 ">
@@ -53,7 +51,7 @@ export default function Events() {
                 <h4 className="eventDate ">Date: {event.date}</h4>
                 <h5 className="eventLocation ">Location: {event.location}</h5>
             </div>
-            
+    
 
             <div className="container pt-5">
                 <div className="row">
@@ -65,7 +63,7 @@ export default function Events() {
                             <p>Event Hosted By {event.organizer.name} </p>
                             <p> description : {event.description}
                                 
-                            </p>
+</p> 
                         </div>
 
                         <div className='detailButtonDiv text-center'>
@@ -83,7 +81,7 @@ export default function Events() {
                             <input className="btn btn-primary w-100 donate-button" type="button" value="Donate" onClick={donateClick}/>
                         </div>
                         <div className = "mapSection mt-3">
-                            <BingMaps/>
+                            <BingMaps />
 
 
 
