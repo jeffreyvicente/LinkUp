@@ -5,7 +5,7 @@
         "location": "Central Park, NY",
         "date": "2023-10-15T00:00:00.000Z",
         "type": "music",
-        "organizer": "Brian Kernighan"
+        "organizer": "jeff"
     },
     {
         "title": "Food Expo",
@@ -13,7 +13,7 @@
         "location": "Convention Center, LA",
         "date": "2023-11-01T00:00:00.000Z",
         "type": "food",
-        "organizer": "Kent Beck"
+        "organizer": "jeff"
     },
     {
         "title": "Lollapalooza",
@@ -21,7 +21,7 @@
         "location": "Chicago, Illinois",
         "date": "2023-09-28T00:00:00.000Z",
         "type": "music",
-        "organizer": "C.A.R. Hoare"
+        "organizer": "mark"
     },
     {
         "title": "Enchanted Garden Soirée",
@@ -29,6 +29,6 @@
         "location": "Secret Garden Estate, San Francisco, CA",
         "date": "2023-06-27T00:00:00.000Z",
         "type": "party",
-        "organizer": "David Thomas"
+        "organizer": "mark"
     }
 ]

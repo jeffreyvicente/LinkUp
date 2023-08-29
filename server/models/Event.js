@@ -27,7 +27,13 @@ const eventSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-      },
+    },
+    eventAttendees: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+    ]
 });
 
 
