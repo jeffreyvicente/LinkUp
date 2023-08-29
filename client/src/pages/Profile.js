@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import {Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Landing from '../components/Landing';
@@ -6,10 +10,14 @@ import Landing from '../components/Landing';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import Auth from '../utils/auth';
+  import Auth from '../utils/auth'; 
 
+export default function Profile() {
+    const [showModal, setShowModal] = useState(false);
 
-const Profile = () => {
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
+
 
    
     const CreateEventClick = () => {
@@ -61,6 +69,7 @@ const Profile = () => {
 
     
     return(
+        <Container fluid className='profile-container'>
         <div className='profileBody container p-3'>
 
 
@@ -68,47 +77,76 @@ const Profile = () => {
                 <div className="row">
 
                     <div className="col-sm-4">
-                        <h4>Profile Intro</h4>
+                        <h1>My Events</h1>
                         
                         <div className='profileInfo pt-2'>
-                            <p>Name: NamePlace Holder</p>
+                            <h3>Name: NamePlace Holder</h3>
                             <p>Email:  Email Placeholder</p>
                         </div>
 
                         <div>
-                            <input className="btn btn-primary w-50" type="button" value="Create Event" />
+                            <Button className="btn btn-primary w-50 event-create" onClick={handleShow}>
+                                Create New Event
+                            </Button>
                         </div>
-                        
+                        <Modal show={showModal} onHide={handleClose} className="auth-model">
+                    <Modal.Header closeButton closeVariant='white'>
+                        <Modal.Title>Create New Event</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Event Title</Form.Label>
+                                <Form.Control type="text" placeholder="Enter event title" />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <Form.Label>RSVP Cost</Form.Label>
+                                <Form.Control type="number" placeholder="Enter cost" />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control as="textarea" rows={3} placeholder="Enter description" />
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={handleClose} className='modal-button'>
+                            Create Event
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
                     </div>
 
 
                     <div className="col-sm-8">
-                        <div className= 'currentEventSection '>
-                            <h4>Current Events</h4>
-                            <div className="list-group">
-                                <button type="button" className="list-group-item list-group-item-action "> Event #1</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #2</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #3</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #4</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #5</button>
+                        <div className= 'currentEventSection'>
+                            <h4>My Current Events</h4>
+                            <div className="list-group current-events">
+                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #1</button>
+                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #2</button>
+                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #3</button>
+                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #4</button>
+                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #5</button>
                             </div>
                         </div>
                        
                         <div className= 'pastEventSection pt-3'>
-                            <h4>Past Events</h4>
-                            <div className="list-group">
-                                <button type="button" className="list-group-item list-group-item-action "> Event #1</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #2</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #3</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #4</button>
-                                <button type="button" className="list-group-item list-group-item-action "> Event #5</button>
+                            <h4>My Past Events</h4>
+                            <div className="list-group past-events">
+                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #1</button>
+                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #2</button>
+                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #3</button>
+                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #4</button>
+                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #5</button>
                             </div>
                         </div>
                     </div>                    
                 </div>
             </div>
         </div>
+        </Container>
     );
 }
-
-export default Profile;
