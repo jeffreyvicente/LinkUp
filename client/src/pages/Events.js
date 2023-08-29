@@ -10,6 +10,7 @@ import { QUERY_SINGLE_EVENT } from '../utils/queries';
 
 export default function Events() {
     
+   
     const donateClick = () => {
         console.log("Donate button clicked");     
     };
@@ -18,6 +19,7 @@ export default function Events() {
         console.log("Attend button clicked");
     };
 
+     
     const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
@@ -27,7 +29,7 @@ export default function Events() {
     const closeModal = () => {
       setShowModal(false);
     };
-
+/*
     //Query code to pull the single event data
     //Code should be like 18stu in 22State
 
@@ -46,15 +48,15 @@ export default function Events() {
         return <div>Error: {error.message}</div>;
     }
 
-    
+    */
     return (
      
         <Container fluid className="events-container">
 
             <div className ="eventHeader m-2 ">
-                <h1 className="eventName">Title: {event.title}</h1>
-                <h4 className="eventDate ">Date: {event.date}</h4>
-                <h5 className="eventLocation ">Location: {event.location}</h5>
+                <h1 className="eventName">Title: </h1>
+                <h4 className="eventDate ">Date: </h4>
+                <h5 className="eventLocation ">Location: </h5>
             </div>
     
 
@@ -65,8 +67,8 @@ export default function Events() {
                         <div className ="detailsSection">
                         <h4 className="text-left">Details</h4>
                             <p>700 people attending</p>
-                            <p>Event Hosted By {event.organizer.name} </p>
-                            <p> description : {event.description}
+                            <p>Event Hosted By  </p>
+                            <p> description : 
                                 
 </p> 
                         </div>

@@ -5,7 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_PAST_EVENTS } from '../utils/queries';
+import Landing from '../components/Landing';
+
+
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
   import Auth from '../utils/auth'; 
@@ -16,7 +18,8 @@ export default function Profile() {
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
-    /*
+
+   
     const CreateEventClick = () => {
        
         console.log("Create button clicked");
@@ -27,11 +30,12 @@ export default function Profile() {
 
     const {username: userParam} = useParams();
 
-    const {loading, data} = useQuery(userParam ? QUERY_USER: QUERY_ME, {
+   
+    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: { username: userParam },
-    });
+      });
 
-
+ 
     const user = data?.me || data?.user || {};
 
     // navigate to personal profile page if username is yours
@@ -45,10 +49,9 @@ export default function Profile() {
     
     if (!user?.username) {
         return (
-            <h4>
-                You need to be logged in to see this. Use the navigation links above to
-                sign up or log in!
-            </h4>
+           <div>
+            <Landing/>
+           </div>
         );
     }
 
@@ -56,23 +59,13 @@ export default function Profile() {
     //The moon is just like sun, it is big!
     // console.log(user.thoughts[0].thoughtText);
 
-
-
     
-    const userID = "FakeUserID";
-    const olderThanDate = "2023-08-01"
 
-    const {loading, data} = useQuery(QUERY_PAST_EVENTS, {
-        variables:{userID, olderThan: olderThanDate},
-    });
 
-    if (loading){
-        return <div>Loading...</div>
-    }
-    
+
    
-    */
-    
+ 
+
 
     
     return(
