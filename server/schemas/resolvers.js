@@ -39,8 +39,8 @@ const resolvers = {
             });
             return await newEvent.save();
         },
-        createUser: async (parent, { fullName, username, email, password }) => {
-            const user = await User.create({ fullName, username, email, password });
+        createUser: async (parent, {  username, email, password }) => {
+            const user = await User.create({ username, email, password });
             const token = signToken(user);
             return { token, user };
         },

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Modal, Tab, Tabs, Button, Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER, ADD_USER } from '../utils/mutations';
+import { LOGIN_USER, CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function AuthModal({ show, handleClose }) {
@@ -53,7 +53,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     
   // Form States for Signup
   const [userFormDataSignUp, setUserFormDataSignUp] = useState({ fullName: '', username: '', email: '', password: '' });
-  const [addUser, signupError] = useMutation(ADD_USER);
+  const [addUser, signupError] = useMutation(CREATE_USER);
   const handleInputChangeSignUp = (event) => {
     const { name, value } = event.target;
     setUserFormDataSignUp({ ...userFormDataSignUp, [name]: value });

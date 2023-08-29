@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navbar';
  import LoginLanding from './components/Landing'; 
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 import Events from './pages/Events';
 import Profile from './pages/Profile';
@@ -69,6 +71,14 @@ function App() {
               path="/events/:eventId"
               element={<Events />}
               />
+            <Route 
+              path="/login"
+              element={<Login />}
+            />
+            <Route 
+              path="/signup"
+              element={<Signup />}
+            />
 
           </Routes>
 

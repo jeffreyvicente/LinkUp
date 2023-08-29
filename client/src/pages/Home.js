@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import logo from '../logo.png';
 import { Link } from 'react-router-dom';
 
+import Auth from '../utils/auth';
+
 function Home() {
     const events = [
        {
@@ -35,6 +37,8 @@ function Home() {
 
     return (
         <Container fluid className="home-container">
+
+            <h1>{Auth.getProfile().data.username}</h1>
             <Row className="justify-content-center mt-4 home-title">
                 <Col md="auto">
                 <img src={logo} alt="App Logo" className="home-logo"/>
