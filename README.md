@@ -35,14 +35,27 @@ So that I can connect with others, discover new trails, and plan exciting hiking
 ```
 
 ## Preview
-View TextScribe hosted on [Github](https://jeffreyvicente.github.io/20-PersonalReactPortfolio/#home)
+View Linkup hosted on [Heroku](https://jeffreyvicente.github.io/20-PersonalReactPortfolio/#home)
 
-![alt text](/src/assets/images/projectImages/portfolioDemo.gif)
+![alt text](/media/Screenshot-Home.png)
+The Default home page showing different events.
 
+![alt text](/media/Screenshot-Events.png)
+The Events pages displaying event information.
+
+![alt text](/media/Screenshot-Landing.png)
+The Landing page users will see when not logged in. 
+
+![alt text](/media//Screenshot-Landing2.png)
+The Sign In and Sign Up page. 
 
 
 ## Features
 The LinkUp application has the following pages:
+- Homepage
+- Events
+- Landing
+- Profile
 
 ## Technologies Used
 - HTML5
