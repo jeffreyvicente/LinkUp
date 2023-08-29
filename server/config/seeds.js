@@ -2,6 +2,84 @@ const db = require('./connection');
 const { User, Event } = require('../models');
 
 db.once('open', async () => {
+  await User.deleteMany();
+
+   const users = await User.insertMany([
+        {
+            fullName: 'John Doe',
+            username: 'johndoe',
+            email: 'john.doe@example.com',
+            password: 'password123',
+            events:  [events[0]._id]
+        },
+        {
+            fullName: 'Jane Smith',
+            username: 'janesmith',
+            email: 'jane.smith@example.com',
+            password: 'password123',
+            events: [events[1]._id, events[15]._id, events[16]._id]
+        },
+        {
+            fullName: "Andrew Alexander",
+            username: "andrewa",
+            email: "andrew.a@example.com",
+            password: "password123",
+            events: [events[2]._id, events[11]._id]
+        },
+        {
+            fullName: "Brad Bailey",
+            username: "bradb",
+            email: "brad.b@example.com",
+            password: "password1234",
+            events: [events[3]._id]
+        },
+        {
+            fullName: "Carl Carlyle",
+            username: "carlc",
+            email: "carl.c@example.com",
+            password: "pass12345",
+            events: [events[4]._id, events[14]._id]
+        },
+        {
+            fullName: "David Davidson",
+            username: "davidd",
+            email: "david.d@example.com",
+            password: "pass123456",
+            events: [events[5]._id, events[12]._id]
+        },
+        {
+            fullName: "Erica Edwards",
+            username: "ericae",
+            email: "erica.e@example.com",
+            password: "pass1234567",
+            events: [events[6]._id]
+    
+        },
+        {
+            fullName: "Frank Franklin",
+            username: "frankf",
+            email: "frank.f@example.com",
+            password: "pass12345678",
+            events: [events[7]._id]
+        },
+        {
+            fullName: "Greg Grant",
+            username: "gregg",
+            email: "greg.g@example.com",
+            password: "pass123456789",
+            events: [events[8]._id, events[13]._id]
+        },
+        {
+            fullName: "Heather Hamilton",
+            username: "heatherh",
+            email: "heather.h@example.com",
+            password: "pass1234567890",
+            events: [events[9]._id]
+        }
+    ]);
+   
+    console.log('users seeded');
+
     await Event.deleteMany();
 
     const events = await Event.insertMany([
@@ -136,84 +214,6 @@ db.once('open', async () => {
     ]);
 
     console.log('events seeded');
-
-    await User.deleteMany();
-
-   const users = await User.insertMany([
-        {
-            fullName: 'John Doe',
-            username: 'johndoe',
-            email: 'john.doe@example.com',
-            password: 'password123',
-            events:  [events[0]._id]
-        },
-        {
-            fullName: 'Jane Smith',
-            username: 'janesmith',
-            email: 'jane.smith@example.com',
-            password: 'password123',
-            events: [events[1]._id, events[15]._id, events[16]._id]
-        },
-        {
-            fullName: "Andrew Alexander",
-            username: "andrewa",
-            email: "andrew.a@example.com",
-            password: "password123",
-            events: [events[2]._id, events[11]._id]
-        },
-        {
-            fullName: "Brad Bailey",
-            username: "bradb",
-            email: "brad.b@example.com",
-            password: "password1234",
-            events: [events[3]._id]
-        },
-        {
-            fullName: "Carl Carlyle",
-            username: "carlc",
-            email: "carl.c@example.com",
-            password: "pass12345",
-            events: [events[4]._id, events[14]._id]
-        },
-        {
-            fullName: "David Davidson",
-            username: "davidd",
-            email: "david.d@example.com",
-            password: "pass123456",
-            events: [events[5]._id, events[12]._id]
-        },
-        {
-            fullName: "Erica Edwards",
-            username: "ericae",
-            email: "erica.e@example.com",
-            password: "pass1234567",
-            events: [events[6]._id]
-    
-        },
-        {
-            fullName: "Frank Franklin",
-            username: "frankf",
-            email: "frank.f@example.com",
-            password: "pass12345678",
-            events: [events[7]._id]
-        },
-        {
-            fullName: "Greg Grant",
-            username: "gregg",
-            email: "greg.g@example.com",
-            password: "pass123456789",
-            events: [events[8]._id, events[13]._id]
-        },
-        {
-            fullName: "Heather Hamilton",
-            username: "heatherh",
-            email: "heather.h@example.com",
-            password: "pass1234567890",
-            events: [events[9]._id]
-        }
-    ]);
-   
-    console.log('users seeded');
 
     process.exit();
 });
