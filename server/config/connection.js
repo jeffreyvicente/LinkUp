@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/linkup');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/linkup');
 
 module.exports = mongoose.connection;
