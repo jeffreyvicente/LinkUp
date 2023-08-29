@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_EVENT } from '../utils/queries';
 
-export default function Events() {
+const Events = () => {
     
    
     const donateClick = () => {
@@ -29,26 +29,16 @@ export default function Events() {
     const closeModal = () => {
       setShowModal(false);
     };
-/*
-    //Query code to pull the single event data
-    //Code should be like 18stu in 22State
 
-    const { eventId } = useParams();
 
-    const {loading, data, error  } = useQuery(QUERY_SINGLE_EVENT, {
-        variables: {eventId: eventId},
-    });
 
-    const event = data?.event || {};
+    //Map Logic 
 
-    if (loading){
-        return <div>Loading...</div>;
-    }
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
-    */
+    const location = {
+        lat: 47.6062,
+        long: -122.3321
+      };
+    
     return (
         
 
@@ -90,7 +80,7 @@ export default function Events() {
                             <input className="btn btn-primary w-100 donate-button" type="button" value="Donate" onClick={donateClick}/>
                         </div>
                         <div className = "mapSection mt-3">
-                            <BingMaps/>
+                            <BingMaps location = {location}/>
 
 
 
@@ -129,4 +119,6 @@ export default function Events() {
     );
 
 
-}
+};
+
+export default Events;

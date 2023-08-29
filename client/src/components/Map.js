@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // Bing Maps API key
-const BING_MAPS_API_KEY = 'YOUR_BING_MAPS_API_KEY';
+const BING_MAPS_API_KEY = 'AgztHx8rlO0Qx58HLhV5ADFbJqHIIjkbzPXkVI3HEnLIJv9MTCVZCMYWNA1UDjTN';
 
 const MapSection = () => {
   useEffect(() => {

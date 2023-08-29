@@ -91,6 +91,10 @@ function App() {
               path="/events/:eventId"
               element={<Events />}
               />
+              <Route 
+              path="/events/"
+              element={<Events />}
+              />
 
           </Routes>
 
