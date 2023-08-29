@@ -4,7 +4,13 @@ const bcrypt = require('bcrypt');
 const Event = require('./Event');
 
 const userSchema = new Schema({
-    name: {
+    fullName: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        },
+    username: {
         type: String,
         required: true,
         unique: true,
@@ -20,9 +26,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5,
-        },
-    birthday: {
-            type: Date,
         },
     events: [Event.schema],
     

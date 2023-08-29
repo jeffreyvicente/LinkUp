@@ -33,15 +33,20 @@ export default function Events() {
 
     const { eventId } = useParams();
 
-    const {loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+    const {loading, data, error  } = useQuery(QUERY_SINGLE_EVENT, {
         variables: {eventId: eventId},
     });
 
     const event = data?.event || {};
 
     if (loading){
-        return <div>Loading...</div>
-    } 
+        return <div>Loading...</div>;
+    }
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
+    
     return (
      
         <Container fluid className="events-container">

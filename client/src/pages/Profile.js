@@ -16,6 +16,7 @@ export default function Profile() {
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
+    /*
     const CreateEventClick = () => {
        
         console.log("Create button clicked");
@@ -70,7 +71,7 @@ export default function Profile() {
     }
     
    
-
+    */
     
 
     

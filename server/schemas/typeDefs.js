@@ -13,26 +13,30 @@ const typeDefs = gql`
 
     type User {
         _id: ID!
-        name: String!
+        fullName: String!
+        username: String!
         email: String!
         password: String!
-        birthday: String
+        me: User
+
     }
 
     type Auth {
-        token: String!
+        token: ID
         user: User!
     }
 
     type Query {
-        events: [Event]!
-        event(id: ID!): Event
-        user(id: ID!): User
-    }
+        users: [User]
+        user(username: String!): User
+        events(username: String): [Event]
+        event(thoughtId: ID!): Event
+        me: User
+      }
 
     type Mutation {
         createEvent(title: String!, description: String!, location: String!, date: String!, type: String!): Event
-        createUser(name: String!, email: String!, password: String!, birthday: String): Auth!
+        createUser(fullName: String!, username: String!, email: String!, password: String!): Auth!
         login(email: String!, password: String!): Auth!
     }
 `;

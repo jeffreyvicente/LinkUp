@@ -35,8 +35,8 @@ const resolvers = {
             });
             return await newEvent.save();
         },
-        createUser: async (_, { name, email, password, birthday }) => {
-            const user = new User({ name, email, password, birthday });
+        createUser: async (_, { fullName, username, email, password }) => {
+            const user = new User({ fullName, username, email, password });
             const savedUser = await user.save();
             const token = signToken(savedUser);
             return { token, user: savedUser };
