@@ -3,70 +3,60 @@
         "fullName": "John Doe",
         "username": "johndoe",
         "email": "john.doe@example.com",
-        "password": "password1",
-        "events": "[events[0]._id]"
+        "password": "password1"
     },
     {
         "fullName": "Jane Smith",
         "username": "janesmith",
         "email": "jane.smith@example.com",
-        "password": "password12",
-        "events": "[events[1]._id, events[15]._id, events[16]._id]"
+        "password": "password12"
     },
     {
         "fullName": "Andrew Alexander",
         "username": "andrewa",
         "email": "andrew.a@example.com",
-        "password": "password123",
-        "events": "[events[2]._id, events[11]._id]"
+        "password": "password123"
     },
     {
         "fullName": "Brad Bailey",
         "username": "bradb",
         "email": "brad.b@example.com",
-        "password": "password1234",
-        "events": "[events[3]._id]"
+        "password": "password1234"
     },
     {
         "fullName": "Carl Carlyle",
         "username": "carlc",
         "email": "carl.c@example.com",
-        "password": "pass12345",
-        "events": "[events[4]._id]"
+        "password": "pass12345"
     },
     {
         "fullName": "David Davidson",
         "username": "davidd",
         "email": "david.d@example.com",
-        "password": "pass123456",
-        "events": "[events[5]._id, events[12]._id]"
+        "password": "pass123456"
     },
     {
-        "name": "Erica Edwards",
+        "fullName": "Erica Edwards",
         "username": "ericae",
         "email": "erica.e@example.com",
-        "password": "pass1234567",
-        "events": "[events[6]._id]"    
+        "password": "pass1234567" 
     },
     {
-        "name": "Frank Franklin",
+        "fullName": "Frank Franklin",
         "username": "frankf",
         "email": "frank.f@example.com",
-        "password": "pass12345678",
-        "events": "[events[7]._id]"
+        "password": "pass12345678"
     },
     {
-        "name": "Greg Grant",
+        "fullName": "Greg Grant",
         "username": "gregg",
         "email": "greg.g@example.com",
-        "password": "pass123456789",
-        "events": "[events[8]._id, events[13]._id"
+        "password": "pass123456789"
     },
     {
-        "name": "Heather Hamilton",
+        "fullName": "Heather Hamilton",
         "username": "heatherh",
         "email": "heather.h@example.com",
-        "password": "pass1234567890",
-        "events": "[events[9]._id]"
+        "password": "pass1234567890"
     }
 ]
