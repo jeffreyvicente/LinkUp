@@ -139,7 +139,7 @@ db.once('open', async () => {
 
     await User.deleteMany();
 
-    await User.insertMany([
+   const users = await User.insertMany([
         {
             fullName: 'John Doe',
             username: 'johndoe',
