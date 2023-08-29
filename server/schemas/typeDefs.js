@@ -19,6 +19,8 @@ const typeDefs = gql`
         location: String
         date: String
         type: String
+        organizer: String
+        eventAttendees: [User]!
     }
 
     type Auth {
@@ -38,6 +40,7 @@ const typeDefs = gql`
         createEvent(title: String!, description: String!, location: String!, date: String!, type: String!): Event
         createUser(fullName: String!, username: String!, email: String!, password: String!): Auth!
         login(username: String!, password: String!): Auth!
+        addEventAttendee(eventId: ID, userId: ID):User
     }
 `;
 

@@ -21,9 +21,16 @@
         "events": []
     },
     {
-        "fullName": "Brad Bailey",
-        "username": "bradb",
-        "email": "brad.b@example.com",
+        "fullName": "Jeffrey Vicente",
+        "username": "jeff",
+        "email": "jeff@jeff.com",
+        "password": "password1234",
+        "events": []
+    },
+    {
+        "fullName": "Mark Awa",
+        "username": "mark",
+        "email": "mark@mark.com",
         "password": "password1234",
         "events": []
     }
