@@ -7,13 +7,16 @@ const resolvers = {
         events: async () => {
             return await Event.find().populate('organizer');
         },
-        event: async (_, { id }) => {
-            return await Event.findOne({ _id: id }).populate('organizer');
+        event: async ( parent, { eventId }) => {
+            return Event.findOne({ _id: eventId });
         },
-        user: async (_, { id }) => {
-            return await User.findOne({ _id: id });
+        user: async (parent, { username }) => {
+            return  User.findOne({ username }).populate('events');
         },
-        me: async (_, args, context) => {
+        users: async () => {
+            return User.find().populate('events');
+          },
+        me: async (parent, args, context) => {
             if (context.user) {
                 return await User.findOne({ _id: context.user._id });
             }
@@ -35,14 +38,13 @@ const resolvers = {
             });
             return await newEvent.save();
         },
-        createUser: async (_, { fullName, username, email, password }) => {
-            const user = new User({ fullName, username, email, password });
-            const savedUser = await user.save();
-            const token = signToken(savedUser);
-            return { token, user: savedUser };
+        createUser: async (parent, { fullName, username, email, password }) => {
+            const user = await User.create({ fullName, username, email, password });
+            const token = signToken(user);
+            return { token, user };
         },
-        login: async (_, { email, password }) => {
-            const user = await User.findOne({ email });
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
             if (!user) {
                 throw new AuthenticationError('Incorrect credentials');
             }
