@@ -17,28 +17,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
-
-/*
-function App() {
- 
-  return (
-    <Router>
-    <div>
-      <Navigation />
-
-    {/* <LoginLanding /> }
-    {/*  <Home /> }
-    {/*<Events /> }
-    {/*<Checkout />}
-      <Profile />
-
-    </div>
-    </Router>
-  );
-}
-*/
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
