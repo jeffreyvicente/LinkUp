@@ -246,6 +246,12 @@ font-style: italic;
     --bs-nav-link-hover-color: #F9FBEF !important;
 }
 
+.show-hide {
+  margin-top: 10px;
+  background-color: #23216C !important;
+  border: solid 3px #4CC2EC !important;
+}
+
 /* Events Page Styles */
 
 .events-container {
