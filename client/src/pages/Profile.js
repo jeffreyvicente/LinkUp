@@ -9,6 +9,7 @@ import Auth from '../utils/auth';
 
 export default function Profile() {
 
+    /*
     const CreateEventClick = () => {
        
         console.log("Create button clicked");
@@ -61,9 +62,9 @@ export default function Profile() {
     if (loading){
         return <div>Loading...</div>
     }
-    */
+    
    
-
+    */
     
 
     
@@ -83,7 +84,7 @@ export default function Profile() {
                         </div>
 
                         <div>
-                            <input className="btn btn-primary w-50" type="button" value="Create Event"  onClick={CreateEventClick}/>
+                            <input className="btn btn-primary w-50" type="button" value="Create Event" />
                         </div>
                         
                     </div>

@@ -5,6 +5,8 @@ import Navigation from './components/Navbar';
 import Home from './pages/Home';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Events from './pages/Events';
+import Profile from './pages/Profile';
+
 function App() {
  
   return (
@@ -15,7 +17,8 @@ function App() {
     {/* <LoginLanding /> */}
     {/*  <Home /> */}
     {/*<Events /> */}
-    <Checkout />
+    {/*<Checkout />*/}
+      <Profile />
 
     </div>
     </Router>
