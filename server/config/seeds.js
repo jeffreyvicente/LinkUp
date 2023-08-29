@@ -141,74 +141,74 @@ db.once('open', async () => {
 
     await User.insertMany([
         {
-            name: 'John Doe',
+            fullName: 'John Doe',
+            username: 'johndoe',
             email: 'john.doe@example.com',
             password: 'password123',
-            birthday: new Date("1990-0-1"),
             events:  [events[0]._id]
         },
         {
-            name: 'Jane Smith',
+            fullName: 'Jane Smith',
+            username: 'janesmith',
             email: 'jane.smith@example.com',
             password: 'password123',
-            birthday: new Date("1992-1-15"),
             events: [events[1]._id, events[15]._id, events[16]._id]
         },
         {
-            name: "Andrew Alexander",
+            fullName: "Andrew Alexander",
+            username: "andrewa",
             email: "andrew.a@example.com",
             password: "password123",
-            birthday: new Date("1991-8-15"),
             events: [events[2]._id, events[11]._id]
         },
         {
-            name: "Brad Bailey",
+            fullName: "Brad Bailey",
+            username: "bradb",
             email: "brad.b@example.com",
             password: "password1234",
-            birthday: new Date("1988-10-21"),
             events: [events[3]._id]
         },
         {
-            name: "Carl Carlyle",
+            fullName: "Carl Carlyle",
+            username: "carlc",
             email: "carl.c@example.com",
             password: "pass12345",
-            birthday: new Date("1994-10-31"),
             events: [events[4]._id, events[14]._id]
         },
         {
-            name: "David Davidson",
+            fullName: "David Davidson",
+            username: "davidd",
             email: "david.d@example.com",
             password: "pass123456",
-            birthday: new Date("1986, 9, 15"),
             events: [events[5]._id, events[12]._id]
         },
         {
-            name: "Erica Edwards",
+            fullName: "Erica Edwards",
+            username: "ericae",
             email: "erica.e@example.com",
             password: "pass1234567",
-            birthday: new Date("1977-12-21"),
             events: [events[6]._id]
     
         },
         {
-            name: "Frank Franklin",
+            fullName: "Frank Franklin",
+            username: "frankf",
             email: "frank.f@example.com",
             password: "pass12345678",
-            birthday: new Date("1984-11-7"),
             events: [events[7]._id]
         },
         {
-            name: "Greg Grant",
+            fullName: "Greg Grant",
+            username: "gregg",
             email: "greg.g@example.com",
             password: "pass123456789",
-            birthday: new Date("1979-5-27"),
             events: [events[8]._id, events[13]._id]
         },
         {
-            name: "Heather Hamilton",
+            fullName: "Heather Hamilton",
+            username: "heatherh",
             email: "heather.h@example.com",
             password: "pass1234567890",
-            birthday: new Date("1988-1-11"),
             events: [events[9]._id]
         }
     ]);
