@@ -14,9 +14,12 @@ function Navigation() {
     useEffect(() => {
         const userData = localStorage.getItem('user');
         if (userData) {
+          try {
             setUser(JSON.parse(userData));
+          } catch (error) {
+          }
         }
-    }, []);
+      }, []);
 
     const handleOpenModal = () => {
         setShowModal(true);
@@ -33,6 +36,7 @@ function Navigation() {
 
     const handleUserLogout = () => {
         setUser(null);
+        localStorage.removeItem('user');
     };
 
     return (
