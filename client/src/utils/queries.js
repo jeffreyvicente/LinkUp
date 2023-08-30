@@ -19,6 +19,17 @@ export const QUERY_SINGLE_EVENT = gql`
   }
 `;
 
+export const QUERY_ALL_EVENT = gql`
+  query getAllEvents {
+    events {
+      _id
+      title
+      description
+      location
+    }
+  }
+`;
+
 
 
 export const QUERY_USER = gql`
