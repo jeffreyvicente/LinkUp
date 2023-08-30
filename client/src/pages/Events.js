@@ -8,8 +8,28 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_EVENT } from '../utils/queries';
 
-export default function Events() {
+const Events = () => {
+    const [showModal, setShowModal] = useState(false);
+
+    const {eventId} = useParams();
+
+    console.log(eventId);
+
+    const { loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+        // pass URL parameter
+        variables: { eventId: eventId },
+      });
     
+
+    const event = data?.event || {};
+
+    if (loading) {
+        return <div>Loading...</div>;
+      }
+
+
+
+
    
     const donateClick = () => {
         console.log("Donate button clicked");     
@@ -20,7 +40,7 @@ export default function Events() {
     };
 
      
-    const [showModal, setShowModal] = useState(false);
+    
 
     const openModal = () => {
       setShowModal(true);
@@ -29,34 +49,17 @@ export default function Events() {
     const closeModal = () => {
       setShowModal(false);
     };
-/*
-    //Query code to pull the single event data
-    //Code should be like 18stu in 22State
 
-    const { eventId } = useParams();
 
-    const {loading, data, error  } = useQuery(QUERY_SINGLE_EVENT, {
-        variables: {eventId: eventId},
-    });
 
-    const event = data?.event || {};
-
-    if (loading){
-        return <div>Loading...</div>;
-    }
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
-    */
     return (
      
         <Container fluid className="events-container">
 
-            <div className ="eventHeader m-2 ">
-                <h1 className="eventName">Title: </h1>
-                <h4 className="eventDate ">Date: </h4>
-                <h5 className="eventLocation ">Location: </h5>
+            <div className ="eventHeader m-2 text-center">
+                <h1 className="eventName">{event.title} </h1>
+                <h4 className="eventDate ">{event.date} </h4>
+                <h5 className="eventLocation ">{event.location}</h5>
             </div>
     
 
@@ -67,10 +70,8 @@ export default function Events() {
                         <div className ="detailsSection">
                         <h4 className="text-left">Details</h4>
                             <p>700 people attending</p>
-                            <p>Event Hosted By  </p>
-                            <p> description : 
-                                
-</p> 
+                            <p>Event Hosted By: {event.organizer}  </p>
+                            <p></p> 
                         </div>
 
                         <div className='detailButtonDiv text-center'>
@@ -128,3 +129,5 @@ export default function Events() {
 
 
 }
+
+export default Events;

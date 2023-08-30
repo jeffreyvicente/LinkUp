@@ -12,10 +12,9 @@ export const QUERY_SINGLE_EVENT = gql`
       location
       date
       type
-      organizer {
-        _id
-        name
-      }
+      organizer
+      
+      
     }
   }
 `;
@@ -33,7 +32,7 @@ export const QUERY_USER = gql`
         _id
         title
         description
-        createdAt
+        date
       }
     }
   }
@@ -49,7 +48,7 @@ export const QUERY_ME = gql`
         _id
         title
         description
-        createdAt
+        date
       }
     }
   }
