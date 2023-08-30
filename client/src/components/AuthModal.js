@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER, CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-function AuthModal({ show, handleClose }) {
+function AuthModal({ show, handleClose, onUserLogin }) {
     const [activeTab, setActiveTab] = useState('login');
     
     const loginFormRef = useRef(null);
@@ -37,6 +37,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
           });
     
           Auth.login(data?.login?.token);
+          onUserLogin(data?.login?.user);
           handleClose();
         } catch (err) {
           console.error(err);
@@ -72,6 +73,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
       });
 
       Auth.login(data?.addUser?.token);
+      onUserLogin(data?.login?.user);
       handleClose();
     } catch (err) {
       console.error(err);

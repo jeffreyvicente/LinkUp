@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../logo.png';
 import AuthModal from './AuthModal';
-
+import personCircle from 'bootstrap-icons/icons/person-circle.svg';
+import logoutIcon from 'bootstrap-icons/icons/box-arrow-right.svg';
+import loginIcon from 'bootstrap-icons/icons/box-arrow-in-right.svg';
 function Navigation() {
     const [showModal, setShowModal] = useState(false);
+    const [user, setUser] = useState(null);
+    
+    useEffect(() => {
+        const userData = localStorage.getItem('user');
+        if (userData) {
+            setUser(JSON.parse(userData));
+        }
+    }, []);
 
     const handleOpenModal = () => {
         setShowModal(true);
@@ -16,10 +26,19 @@ function Navigation() {
         setShowModal(false);
     };
 
+    const handleUserLogin = (userData) => {
+        setUser(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+    };
+
+    const handleUserLogout = () => {
+        setUser(null);
+    };
+
     return (
         <Navbar expand="lg" className="Navigation">
             <Container>
-                <Navbar.Brand href="#home" className="brand-color">
+                <Navbar.Brand href="/" className="brand-color">
                 <img
               alt="LinkUp Logo"
               src={logo}
@@ -28,9 +47,18 @@ function Navigation() {
               className="d-inline-block align-top"
             />{' '}
             LinkUp</Navbar.Brand>
-                <Nav.Link onClick={handleOpenModal} className="NavLink">Login | Sign Up</Nav.Link>
+            {
+                user ? (
+                    <>
+                    <Nav.Link href={`/profiles/:${user.username}`} className="NavLink">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
+                    <Nav.Link onClick={handleUserLogout} className="NavLink">Logout <img src={logoutIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
+                    </>
+                ) : (
+                    <Nav.Link onClick={handleOpenModal} className="NavLink">Login | Sign Up <img src={loginIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
+                )
+            }
             </Container>
-            <AuthModal show={showModal} handleClose={handleCloseModal} />
+            <AuthModal show={showModal} handleClose={handleCloseModal} onUserLogin={handleUserLogin} />
         </Navbar>
     );
 }
