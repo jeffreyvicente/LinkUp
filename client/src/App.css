@@ -30,6 +30,10 @@ font-weight: 700;
 font-style: italic;
 }
 
+.brand-color:hover {
+  color:#4CC2EC !important;
+}
+
 /* Login Landing Page Styles */
 
 .login-landing {
@@ -250,6 +254,11 @@ font-style: italic;
   margin-top: 10px;
   background-color: #23216C !important;
   border: solid 3px #4CC2EC !important;
+}
+
+.invert-icon {
+  filter: invert(1);
+  margin-bottom: 3px;
 }
 
 /* Events Page Styles */
