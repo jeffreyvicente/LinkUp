@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -18,25 +18,27 @@ export default function Profile() {
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
+    const [localUser, setLocalUser] = useState(null);
 
-   
-    const CreateEventClick = () => {
-       
-        console.log("Create button clicked");
-        
-    };
+    useEffect(() => {
+      const storedUserData = localStorage.getItem('user');
+      const userObj = storedUserData ? JSON.parse(storedUserData) : null;
+      setLocalUser(userObj);
+    }, []);
 
-    //Logic to grab user and user events
+    const { username: userParam } = useParams(); 
 
-    const {username: userParam} = useParams();
+    const queryToUse = userParam ? QUERY_USER : QUERY_ME;
+    const variablesToUse = userParam ? { username: userParam } : {};
+    const { loading, data } = useQuery(queryToUse, {
+        variables: variablesToUse,
+    }); 
 
-   
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-        variables: { username: userParam },
-      });
+  const user = data?.me || data?.user || {};
 
- 
-    const user = data?.me || data?.user || {};
+    if (!localUser) {
+        return <Landing />;
+      }
 
     // navigate to personal profile page if username is yours
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -47,27 +49,8 @@ export default function Profile() {
         return <div>Loading...</div>;
     }
     
-    if (!user?.username) {
-        return (
-           <div>
-            <Landing/>
-           </div>
-        );
-    }
-
-
-    //The moon is just like sun, it is big!
-    // console.log(user.thoughts[0].thoughtText);
-
     
 
-
-
-   
- 
-
-
-    
     return(
         <Container fluid className='profile-container'>
         <div className='profileBody container p-3'>
@@ -80,8 +63,8 @@ export default function Profile() {
                         <h1>My Events</h1>
                         
                         <div className='profileInfo pt-2'>
-                            <h3>Name: NamePlace Holder</h3>
-                            <p>Email:  Email Placeholder</p>
+                            <h3>{localUser.username}</h3>
+                            <p>{user.email}</p>
                         </div>
 
                         <div>
