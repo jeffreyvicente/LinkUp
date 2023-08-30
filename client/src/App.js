@@ -1,12 +1,12 @@
 import './App.css';
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navbar';
 import LoginLanding from './components/Landing'; 
 import Home from './pages/Home';
-
 import Events from './pages/Events';
 import Profile from './pages/Profile';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
 import {
@@ -43,12 +43,39 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+function AuthCheck() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const userData = localStorage.getItem('user');
+      const tokenData = localStorage.getItem('id_token');
+      if ((userData === 'undefined' || !userData || tokenData === 'undefined') && location.pathname !== '/landing') {
+        navigate('/landing');
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    handleStorageChange();
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [location, navigate]);
+
+  return null;
+}
+
+
 function App() {
   return(
   <ApolloProvider client = {client}>
     <Router>
       <div>
         <Navigation/>
+        <AuthCheck />
         <div className=''>
           <Routes>
             <Route

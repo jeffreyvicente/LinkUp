@@ -3,10 +3,11 @@ import { Modal, Tab, Tabs, Button, Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 function AuthModal({ show, handleClose, onUserLogin }) {
     const [activeTab, setActiveTab] = useState('login');
-    
+    const navigate = useNavigate();
     const loginFormRef = useRef(null);
   const signUpFormRef = useRef(null);
 
@@ -17,7 +18,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
      const [userFormData, setUserFormData] = useState({ email: '', password: '' });
      const [validated, setValidated] = useState(false);
      const [showAlert, setShowAlert] = useState(false);
-     const [login, loginError] = useMutation(LOGIN_USER);
+     const [login] = useMutation(LOGIN_USER);
      const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
@@ -33,12 +34,13 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     
         try {
           const { data } = await login({
-            variables: { ...userFormData },
+            variables: { email: userFormData.email, password: userFormData.password },
           });
     
-          Auth.login(data?.login?.token);
-          onUserLogin(data?.login?.user);
+          Auth.login(data.login.token);
+          onUserLogin(data.login.user);
           handleClose();
+          navigate('/');
         } catch (err) {
           console.error(err);
           setShowAlert(true);
@@ -53,7 +55,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     
   // Form States for Signup
   const [userFormDataSignUp, setUserFormDataSignUp] = useState({ fullName: '', username: '', email: '', password: '' });
-  const [addUser, signupError] = useMutation(CREATE_USER);
+  const [createUser] = useMutation(CREATE_USER);
   const handleInputChangeSignUp = (event) => {
     const { name, value } = event.target;
     setUserFormDataSignUp({ ...userFormDataSignUp, [name]: value });
@@ -68,13 +70,19 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     }
 
     try {
-      const { data } = await addUser({
-        variables: { ...userFormDataSignUp },
+      const { data } = await createUser({
+        variables: { 
+          fullName: userFormDataSignUp.fullName, 
+          username: userFormDataSignUp.username,
+          email: userFormDataSignUp.email, 
+          password: userFormDataSignUp.password 
+        },
       });
 
-      Auth.login(data?.addUser?.token);
-      onUserLogin(data?.login?.user);
+      Auth.login(data.createUser.token);
+      onUserLogin(data.createUser.user);
       handleClose();
+      navigate('/');
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -88,7 +96,8 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log("Handle Submit is being triggered");
     if (activeTab === 'login' && loginFormRef.current) {
       handleFormSubmit({ currentTarget: loginFormRef.current });
