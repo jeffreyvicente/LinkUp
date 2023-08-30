@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import logo from '../logo.png';
 import { Link } from 'react-router-dom';
 
+import Auth from '../utils/auth';
+
 function Home() {
     const events = [
        {
@@ -32,9 +34,12 @@ function Home() {
     const truncateDescription = (desc, limit = 50) => {
         return desc.length > limit ? `${desc.substring(0, limit)}...` : desc;
     };
+    // {<h1>{Auth.getProfile().data.username}</h1>}
 
+    
     return (
         <Container fluid className="home-container">
+           
             <Row className="justify-content-center mt-4 home-title">
                 <Col md="auto">
                 <img src={logo} alt="App Logo" className="home-logo"/>
