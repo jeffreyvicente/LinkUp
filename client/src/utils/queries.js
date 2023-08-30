@@ -43,13 +43,13 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      name
+      fullName
       email
-      thoughts {
+      events {
         _id
         title
         description
-        date
+        createdAt
       }
     }
   }

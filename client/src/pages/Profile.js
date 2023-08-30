@@ -26,17 +26,21 @@ export default function Profile() {
         
     };
 
+    
     //Logic to grab user and user events
 
     const {username: userParam} = useParams();
 
    
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    const { loading, data } = useQuery(QUERY_USER, {
         variables: { username: userParam },
       });
+      
+      const user = data?.user || {};
+    
+  console.log("Test: " + user.userName);
 
- 
-    const user = data?.me || data?.user || {};
+    console.log("Test: " + user.fullName);
 
     // navigate to personal profile page if username is yours
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -49,9 +53,10 @@ export default function Profile() {
     
     if (!user?.username) {
         return (
-           <div>
-            <Landing/>
-           </div>
+            <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
         );
     }
 
