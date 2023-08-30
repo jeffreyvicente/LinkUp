@@ -84,8 +84,8 @@ export default function Profile() {
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>RSVP Cost</Form.Label>
-                                <Form.Control type="number" placeholder="Enter cost" />
+                                <Form.Label>Event Location</Form.Label>
+                                <Form.Control type="text" placeholder="Enter address" />
                             </Form.Group>
 
                             <Form.Group className="mb-3">

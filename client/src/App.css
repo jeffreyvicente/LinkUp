@@ -359,6 +359,9 @@ border: solid 3px #F46036 !important;
 .event-create {
   background-color: #23216C !important;
   border: solid 3px #4CC2EC !important;
+  font-family: "nunito", sans-serif;
+font-weight: 500;
+font-style: italic;
 }
 
 .event-create:hover {
@@ -383,6 +386,9 @@ border: solid 3px #F46036 !important;
   align-items: center;
   height: 4rem;
   font-size: 1.3rem;
+  font-family: "nunito", sans-serif;
+font-weight: 500;
+font-style: italic;
 }
 
 .past-events {
@@ -402,4 +408,7 @@ border: solid 3px #F46036 !important;
   align-items: center;
   height: 4rem;
   font-size: 1.3rem;
+  font-family: "nunito", sans-serif;
+font-weight: 500;
+font-style: italic;
 }
