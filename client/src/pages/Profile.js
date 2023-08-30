@@ -37,8 +37,9 @@ export default function Profile() {
       });
       
       const user = data?.user || {};
+      
     
-  console.log("Test: " + user.userName);
+    console.log("Test: " + user.userName);
 
     console.log("Test: " + user.fullName);
 
