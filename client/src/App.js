@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navbar';
 import LoginLanding from './components/Landing'; 
@@ -7,6 +8,7 @@ import Events from './pages/Events';
 import Profile from './pages/Profile';
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+
 
 import {
   ApolloClient,
@@ -86,17 +88,18 @@ function App() {
               element = {<LoginLanding/>}
               />
             <Route 
-              path="/me"
-              element={<Profile />}
+                path="/me"
+                element={<Profile />}
               />
-             <Route 
-              path="/profiles/:username"
-              element={<Profile />}
+              <Route 
+                path="/profiles/:username"
+                element={<Profile />}
               />
             <Route 
               path="/events/:eventId"
               element={<Events />}
               />
+           
 
           </Routes>
 

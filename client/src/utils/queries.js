@@ -12,10 +12,20 @@ export const QUERY_SINGLE_EVENT = gql`
       location
       date
       type
-      organizer {
-        _id
-        name
-      }
+      organizer
+      
+      
+    }
+  }
+`;
+
+export const QUERY_ALL_EVENT = gql`
+  query getAllEvents {
+    events {
+      _id
+      title
+      description
+      location
     }
   }
 `;
@@ -33,7 +43,7 @@ export const QUERY_USER = gql`
         _id
         title
         description
-        createdAt
+        date
       }
     }
   }
@@ -43,9 +53,9 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      name
+      fullName
       email
-      thoughts {
+      events {
         _id
         title
         description

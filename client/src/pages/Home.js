@@ -5,7 +5,26 @@ import Col from 'react-bootstrap/Col';
 import logo from '../logo.png';
 import { Link } from 'react-router-dom';
 
+import Auth from '../utils/auth';
+
+
+import { QUERY_ALL_EVENT } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+
 function Home() {
+
+    const { loading, data } = useQuery(QUERY_ALL_EVENT);
+    const temp = data?.events || [];
+
+    const getRandomEvents = (events, count) => {
+        const shuffled = [...events]; // Create a shallow copy of the array
+        shuffled.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    };
+
+    const randomEvents = getRandomEvents(temp, 4);
+
+
     const events = [
        {
         title: "Placeholder Event Name",
@@ -29,12 +48,17 @@ function Home() {
        },
     ];
 
+
+
     const truncateDescription = (desc, limit = 50) => {
         return desc.length > limit ? `${desc.substring(0, limit)}...` : desc;
     };
+    // {<h1>{Auth.getProfile().data.username}</h1>}
 
+    
     return (
         <Container fluid className="home-container">
+           
             <Row className="justify-content-center mt-4 home-title">
                 <Col md="auto">
                 <img src={logo} alt="App Logo" className="home-logo"/>
@@ -47,20 +71,25 @@ function Home() {
                 <h3 className="home-h3">Click on an event to learn more about it or RSVP.</h3>
             </Row>
             <Row className="justify-content-center mt-4">
-            {events.map((event, id) => (
-                    <Col md={5} className="mt-3" key={id}>
-                    <Link to={`/event/${id}`} className="home-events-link">
-                    <div className="home-events">
-                    <h4>{event.title}</h4>
-                    <p>{truncateDescription(event.description)}</p>
-                    <h5>{event.cost}</h5>
-                    </div>
-                    </Link>
-                    </Col>    
-            ))}
-            </Row> 
+                {randomEvents.map((event) => (
+                    <Col md={5} className="mt-3" key={event._id}>
+                        <Link to={`/events/${event._id}`} className="home-events-link">
+                            <div className="home-events">
+                                <h4>{event.title}</h4>
+                                <p>{truncateDescription(event.description)}</p>
+                                <h6>{event.location}</h6>
+                            </div>
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
         </Container>
     );
 }
 
 export default Home;
+
+
+
+
+

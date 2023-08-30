@@ -34,12 +34,13 @@ const typeDefs = gql`
         events(username: String): [Event]
         event(eventId: ID!): Event
         me: User
+ 
       }
 
     type Mutation {
         createEvent(title: String!, description: String!, location: String!, date: String!, type: String!): Event
         createUser(fullName: String!, username: String!, email: String!, password: String!): Auth!
-        login(email: String!, password: String!): Auth!
+        login(email: String!, password: String!): Auth
         addEventAttendee(eventId: ID, userId: ID):User
     }
 `;
