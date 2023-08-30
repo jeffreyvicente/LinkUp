@@ -6,7 +6,7 @@ const Event = require('./Event');
 const userSchema = new Schema({
     fullName: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         trim: true,
         },
