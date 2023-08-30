@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Modal, Tab, Tabs, Button, Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER, ADD_USER } from '../utils/mutations';
+import { LOGIN_USER, CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function AuthModal({ show, handleClose }) {
@@ -22,13 +22,12 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
       };
-      const handleFormSubmit = async (event) => {
-        event.preventDefault();
-    
-        const form = event.currentTarget;
+      const handleFormSubmit = async ({ currentTarget }) => {
+        console.log("Login form is being submitted");
+        const form = currentTarget;
+
         if (form.checkValidity() === false) {
             setValidated(true);
-          event.stopPropagation();
           return;
         }
     
@@ -37,7 +36,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
             variables: { ...userFormData },
           });
     
-          Auth.login(data.login.token);
+          Auth.login(data?.login?.token);
           handleClose();
         } catch (err) {
           console.error(err);
@@ -53,18 +52,17 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
     
   // Form States for Signup
   const [userFormDataSignUp, setUserFormDataSignUp] = useState({ fullName: '', username: '', email: '', password: '' });
-  const [addUser, signupError] = useMutation(ADD_USER);
+  const [addUser, signupError] = useMutation(CREATE_USER);
   const handleInputChangeSignUp = (event) => {
     const { name, value } = event.target;
     setUserFormDataSignUp({ ...userFormDataSignUp, [name]: value });
   };
-  const handleFormSubmitSignUp = async (event) => {
-    event.preventDefault();
+  const handleFormSubmitSignUp = async ({ currentTarget }) => {
+    const form = currentTarget;
 
-    const form = event.currentTarget;
+    console.log("Signup form is being submitted");
     if (form.checkValidity() === false) {
       setValidated(true);
-      event.stopPropagation();
       return;
     }
 
@@ -73,7 +71,7 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
         variables: { ...userFormDataSignUp },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data?.addUser?.token);
       handleClose();
     } catch (err) {
       console.error(err);
@@ -89,10 +87,11 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
   };
 
   const handleSubmit = () => {
+    console.log("Handle Submit is being triggered");
     if (activeTab === 'login' && loginFormRef.current) {
-      loginFormRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
+      handleFormSubmit({ currentTarget: loginFormRef.current });
     } else if (activeTab === 'signup' && signUpFormRef.current) {
-      signUpFormRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
+      handleFormSubmitSignUp({ currentTarget: signUpFormRef.current });
     }
   };
 
@@ -121,10 +120,10 @@ const [showPasswordSignup, setShowPasswordSignup] = useState(false);
                         <Form.Group controlId="password">
                             <Form.Label className="form-label">Password</Form.Label>
                             <Form.Control type={showPasswordLogin ? 'text' : 'password'} placeholder="Password" name='password' value={userFormData.password} onChange={handleInputChange} required />
+                            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                             <Button variant="secondary" className='show-hide' onClick={() => setShowPasswordLogin(!showPasswordLogin)}>
                             {showPasswordLogin ? 'Hide' : 'Show'}
                             </Button>
-                            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                         </Form.Group>
                     </Form>
                 </Tab>
