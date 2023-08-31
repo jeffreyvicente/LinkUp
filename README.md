@@ -42,7 +42,7 @@ Application includes user authentication using JWT.
 ```
 
 ## Preview
-View Linkup hosted on [Heroku](https://jeffreyvicente.github.io/20-PersonalReactPortfolio/#home)
+View Linkup hosted on [Heroku](https://agile-refuge-48246-a7fe2775ba1c.herokuapp.com/)
 
 ![alt text](/media/Screenshot-Home.png)
 The Default home page showing different events.
