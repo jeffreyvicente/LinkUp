@@ -87,47 +87,42 @@ db.once('open', async () => {
             title: 'Music Fest 2023',
             description: 'A grand music fest with top artists.',
             location: 'Central Park, NY',
-            date: new Date("2023-10-15"),
-            type: 'music',
+            date: "2023-10-15",
             organizer: users[0]._id
         },
         {   
             title: 'Food Expo',
             description: 'Taste food from around the world.',
             location: 'Convention Center, LA',
-            date: new Date("2023-11-1"),
-            type: 'food',
+            date: "2023-11-1",
             organizer: users[1]._id
         },
         {
             title: 'Lollapalooza',
             description: 'Join us for this amazing music festival.',
             location: "Chicago, Illinois",
-            date: new Date("2023-9-28"),
-            type: 'music',
+            date: "2023-9-28",
             organizer: users[2]._id
         },
         {
             title: "Burning Man",
             description: "This is an iconic counterculture event.",
             location: "Black Rock Desert, Nevada",
-            date: new Date("2023-9-4"),
-            type: "others",
+            date: "2023-9-4",
             organizer: users[3]._id
         },
         {
             title: "New Years Eve Party",
             description: "Amazing party to bring in the new year.",
             location: "Times Square, NY",
-            date: new Date("2023-12-31"),
-            type: "party",
+            date: "2023-12-31",
             organizer: users[4]._id
         },
         {
             title: "Halloween Party",
             description: "Get groovy with all the other ghouls and goblins.",
             location: "Austin, TX",
-            date: new Date("2023-10-31"),
+            date: "2023-10-31",
             type: "party",
             organizer: users[5]._id
         },
@@ -135,80 +130,70 @@ db.once('open', async () => {
             title: "Art Exhibit",
             description: "Rembrandt, Monet, Picasso, and many more.",
             location: "Los Angeles, CA",
-            date: new Date("2023-11-5"),
-            type: "others",
+            date: "2023-11-5",
             organizer: users[6]._id
         },
         {
             title: "Food Fight",
             description: "Join us for the biggest food fight ever.",
             location: "Austin, TX",
-            date: new Date("2023-10-21"),
-            type: "others",
+            date: "2023-10-21",
             organizer: users[7]._id
         },
         {
             title: "Tech Conference 2023",
             description: "Join us for the biggest tech conference of the year.",
             location: "TechExpo Center, San Francisco",
-            date: new Date("2023-10-15"),
-            type: "others",
+            date: "2023-10-15",
             organizer: users[8]._id
         },
         {
             title: "MusicFest 2023",
             description: "Enjoy a weekend of live music performances.",
             location: "Harmony Park, Austin",
-            date: new Date("2023-11-8"),
-            type: "music",
+            date: "2023-11-8",
             organizer: users[9]._id
         },
         {
             title: "Fitness & Wellness Expo",
             description: "Explore the latest trends in fitness.",
             location: "FitZone Arena, Los Angeles",
-            date: new Date("2023-9-2"),
-            type: "others",
+            date: "2023-9-2",
             organizer: users[2]._id
         },
         {
             title: "Indie Music Showcase",
             description: "Discover emerging indie bands and artists.",
             location: "Underground SoundBar, Boston",
-            date: new Date("2023-05-19"),
-            type: "music",
+            date: "2023-05-19",
             organizer: users[5]._id
         },
         {
             title: "Chocolate Lovers' Expo",
             description: "Calling all chocolate enthusiasts!",
             location: "Sweet Factory, Dallas",
-            date: new Date("2023-3-8"),
-            type: "food",
+            date: "2023-3-8",
             organizer: users[8]._id
         },
         {
             title: "Neon Glow Party",
             description: "Experience a night of vibrant neon colors.",
             location: "Eclipse Nightclub, Houston",
-            date: new Date("2022-10-18"),
-            type: "party",
+            date: "2022-10-18",
             organizer: users[4]._id
         },
         {
             title: "Jazz Night at the Park",
             description: "Relax to the smooth sounds of jazz music in the park.",
             location: "City Park Amphitheater, Buda, TX",
-            date: new Date("2022-12-1"),
-            type: "music",
+            date: "2022-12-1",
             organizer: users[1]._id
         },
         {
             title: "Enchanted Garden Soirée",
             description: "Step into an enchanted garden for an evening of magical experiences.",
             location: "Secret Garden Estate, San Francisco, CA",
-            date: new Date("2023-6-27"),
-            type: "party",
+            date: "2023-6-27",
             organizer: users[1]._id
         },
     ]);

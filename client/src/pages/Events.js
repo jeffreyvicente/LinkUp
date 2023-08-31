@@ -16,15 +16,18 @@ const Events = () => {
   }
 
   const { eventId } = useParams();
-  const { loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+  const { loading, error, data } = useQuery(QUERY_SINGLE_EVENT, {
     variables: { eventId: eventId },
   });
+  
+  if (error) {
+    console.log('Error with eventID', error);
+    console.log('GraphQL Errors:', error.graphQLErrors);
+    console.log('Network Errors:', error.networkError.result.errors);
+  }
 
   const event = data?.event || {};
-
-  console.log("Event: " + event.location)
   const finalEvent = event.location
-
   useEffect(() => {
     if (event.location) {
       const locationSearch = replaceSpacesWithPlus(finalEvent);
@@ -50,7 +53,7 @@ const Events = () => {
           }
         });
     }
-  }, [event.location]);
+  }, [event.location, finalEvent]);
 
   console.log(locationData);
 
@@ -94,7 +97,7 @@ const Events = () => {
                   <h4 className="text-left">Details</h4>
                   <p>700 people attending</p>
                   <p>Event Hosted By:{" "}
-                    <Link to={`/profiles/${event.organizer}`}>{event.organizer}</Link>
+                    <Link to={`/profiles/${event.organizer}`}>{event.organizer ? event.organizer.username : 'Unknown'}</Link>
                   </p>
                   <p>{event.description} </p>
                 </div>

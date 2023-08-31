@@ -14,6 +14,7 @@ import { useQuery } from '@apollo/client';
 function Home() {
 
     const { loading, data } = useQuery(QUERY_ALL_EVENT);
+
     const temp = data?.events || [];
 
     const getRandomEvents = (events, count) => {
