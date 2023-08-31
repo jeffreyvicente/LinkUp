@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BingMaps from '../components/Map';
 import Container from 'react-bootstrap/Container';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams ,Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_EVENT } from '../utils/queries';
 
@@ -93,7 +93,9 @@ const Events = () => {
                 <div className="detailsSection">
                   <h4 className="text-left">Details</h4>
                   <p>700 people attending</p>
-                  <p>Event Hosted By: {event.organizer} </p>
+                  <p>Event Hosted By:{" "}
+                    <Link to={`/profiles/${event.organizer}`}>{event.organizer}</Link>
+                  </p>
                   <p>{event.description} </p>
                 </div>
 
