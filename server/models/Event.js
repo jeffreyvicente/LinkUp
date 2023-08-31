@@ -19,9 +19,9 @@ const eventSchema = new Schema({
         required: true
     },
     organizer: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
-        trim: true,
     },
     eventAttendees: [
         {

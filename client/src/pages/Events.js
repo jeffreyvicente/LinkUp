@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import BingMaps from '../components/Map';
-import Container from 'react-bootstrap/Container';
-import { Navigate, useParams ,Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_EVENT } from '../utils/queries';
-
-
+import React, { useState, useEffect } from "react";
+import BingMaps from "../components/Map";
+import Container from "react-bootstrap/Container";
+import { Navigate, useParams, Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_SINGLE_EVENT } from "../utils/queries";
 
 const Events = () => {
   const [showModal, setShowModal] = useState(false);
   const [locationData, setLocationData] = useState(null);
 
   function replaceSpacesWithPlus(inputString) {
-    return inputString.replace(/ /g, '+');
+    return inputString.replace(/ /g, "+");
   }
 
   const { eventId } = useParams();
   const { loading, error, data } = useQuery(QUERY_SINGLE_EVENT, {
     variables: { eventId: eventId },
   });
-  
+
+
   if (error) {
-    console.log('Error with eventID', error);
-    console.log('GraphQL Errors:', error.graphQLErrors);
-    console.log('Network Errors:', error.networkError.result.errors);
+    console.log("Error with eventID", error);
+    console.log("GraphQL Errors:", error.graphQLErrors);
+    console.log("Network Errors:", error.networkError.result.errors);
   }
 
   const event = data?.event || {};
-  const finalEvent = event.location
+  const finalEvent = event.location;
+
+  const event1 = data?.event || {};
   useEffect(() => {
     if (event.location) {
       const locationSearch = replaceSpacesWithPlus(finalEvent);
@@ -35,16 +36,16 @@ const Events = () => {
       console.log(fetchURL);
 
       fetch(fetchURL)
-        .then(response => response.json())
-        .then(data => {
-            console.log("Return data: " + data[0].lat)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Return data: " + data[0].lat);
           if (data && data.length > 0) {
             const locationLat = data[0].lat;
             const locationLon = data[0].lon;
 
             const locationData = {
               lat: locationLat,
-              lon: locationLon
+              lon: locationLon,
             };
 
             setLocationData(locationData);
@@ -56,13 +57,6 @@ const Events = () => {
   }, [event.location, finalEvent]);
 
   console.log(locationData);
-
-
-
-
-
-
-  
 
   const donateClick = () => {
     console.log("Donate button clicked");
@@ -96,14 +90,25 @@ const Events = () => {
                 <div className="detailsSection">
                   <h4 className="text-left">Details</h4>
                   <p>700 people attending</p>
-                  <p>Event Hosted By:{" "}
-                    <Link to={`/profiles/${event.organizer}`}>{event.organizer ? event.organizer.username : 'Unknown'}</Link>
+                  <p>
+                    Event Hosted By: {event.organizer ? event.organizer.username : "Unknown"}
+                    <Link
+                      to={`/profiles/${
+                        event.organizer ? event.organizer._id : "unknown"
+                      }`}
+                    >
+                    </Link>
                   </p>
                   <p>{event.description} </p>
                 </div>
 
-                <div className='detailButtonDiv text-center'>
-                  <input className="btn btn-primary w-25 rsvp-button" type="button" value="RSVP" onClick={openModal} />
+                <div className="detailButtonDiv text-center">
+                  <input
+                    className="btn btn-primary w-25 rsvp-button"
+                    type="button"
+                    value="RSVP"
+                    onClick={openModal}
+                  />
                 </div>
               </div>
 
@@ -111,7 +116,12 @@ const Events = () => {
                 <h4 className="text-left">Donate</h4>
                 <p>Chip in to help fund this event:</p>
                 <div>
-                  <input className="btn btn-primary w-100 donate-button" type="button" value="Donate" onClick={donateClick} />
+                  <input
+                    className="btn btn-primary w-100 donate-button"
+                    type="button"
+                    value="Donate"
+                    onClick={donateClick}
+                  />
                 </div>
                 <div className="mapSection mt-3">
                   <BingMaps locationDataParse={locationData} />
@@ -121,14 +131,24 @@ const Events = () => {
           </div>
 
           {/* Pop up modal when a user RSVPs */}
-          <div className={`modal ${showModal ? 'show' : ''}`} tabIndex="-1" style={{ display: showModal ? 'block' : 'none' }}>
+          <div
+            className={`modal ${showModal ? "show" : ""}`}
+            tabIndex="-1"
+            style={{ display: showModal ? "block" : "none" }}
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="rsvp-modal-header">
-                  <h5 className="modal-title">Thanks for RSVPing to the event</h5>
+                  <h5 className="modal-title">
+                    Thanks for RSVPing to the event
+                  </h5>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary modal-close" onClick={closeModal}>
+                  <button
+                    type="button"
+                    className="btn btn-secondary modal-close"
+                    onClick={closeModal}
+                  >
                     Close
                   </button>
                 </div>
