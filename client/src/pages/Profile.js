@@ -4,9 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import Landing from '../components/Landing';
-
+import { CREATE_EVENT } from '../utils/mutations';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -17,8 +17,37 @@ export default function Profile() {
 
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
-
+    const [createEvent] = useMutation(CREATE_EVENT);
     const [localUser, setLocalUser] = useState(null);
+
+    const [eventData, setEventData] = useState({
+        title: '',
+        location: '',
+        date: '',
+        description: ''
+      });
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setEventData({
+          ...eventData,
+          [name]: value
+        });
+      };
+
+      const handleSubmit = async () => {
+        try {
+          const { data } = await createEvent({
+            variables: {
+              ...eventData
+            }
+          });
+          handleClose();
+        } catch (err) {
+          console.error('Error creating event:', err.networkError.result.errors);
+        }
+      };
+    
 
     useEffect(() => {
       const storedUserData = localStorage.getItem('user');
@@ -30,7 +59,7 @@ export default function Profile() {
 
     const queryToUse = userParam ? QUERY_USER : QUERY_ME;
     const variablesToUse = userParam ? { username: userParam } : {};
-    const { loading, data } = useQuery(queryToUse, {
+    const { data } = useQuery(queryToUse, {
         variables: variablesToUse,
     }); 
 
@@ -44,11 +73,6 @@ export default function Profile() {
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to="/me" />;
     }
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-    
     
 
     return(
@@ -80,22 +104,27 @@ export default function Profile() {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Event Title</Form.Label>
-                                <Form.Control type="text" placeholder="Enter event title" />
+                                <Form.Control type="text" placeholder="Enter event title" name="title" value={eventData.title} onChange={handleChange} />
                             </Form.Group>
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Event Location</Form.Label>
-                                <Form.Control type="text" placeholder="Enter address" />
+                                <Form.Control type="text" placeholder="Enter address" name="location" value={eventData.location} onChange={handleChange} />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <Form.Label>Event Date</Form.Label>
+                                <Form.Control type="text" placeholder="Enter event date" name="date" value={eventData.date} onChange={handleChange} />
                             </Form.Group>
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control as="textarea" rows={3} placeholder="Enter description" />
+                                <Form.Control as="textarea" rows={3} placeholder="Enter description" name="description" value={eventData.description} onChange={handleChange} />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={handleClose} className='modal-button'>
+                        <Button variant="primary" onClick={handleSubmit} className='modal-button'>
                             Create Event
                         </Button>
                     </Modal.Footer>

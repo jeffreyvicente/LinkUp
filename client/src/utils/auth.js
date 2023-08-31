@@ -24,10 +24,7 @@ class AuthService {
   }
 
   getToken() {
-    const token = localStorage.getItem('id_token');
-  console.log("Token:", token);
     return localStorage.getItem('id_token');
-    
   }
 
   login(idToken) {
@@ -42,3 +39,4 @@ class AuthService {
 }
 
 export default new AuthService();
+

@@ -11,9 +11,10 @@ export const QUERY_SINGLE_EVENT = gql`
       description
       location
       date
-      type
-      organizer
-      
+      organizer {
+        _id
+        username
+      }
       
     }
   }

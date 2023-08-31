@@ -25,19 +25,24 @@ const resolvers = {
         },
     },
     Mutation: {
-        createEvent: async (parent, { title, description, location, date, type }, context) => {
+        createEvent: async (parent, { title, description, location, date }, context) => {
+           try {
             if (!context.user) {
                 throw new AuthenticationError('You need to be logged in to create an event');
-            }
+            } 
             const newEvent = new Event({
                 title,
                 description,
                 location,
-                date: new Date(date),
-                type,
+                date,
                 organizer: context.user._id
             });
+        
             return await newEvent.save();
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
         },
         createUser: async (parent, { fullName, username, email, password }) => {
             const user = await User.create({ fullName, username, email, password });

@@ -16,13 +16,17 @@ const Events = () => {
   }
 
   const { eventId } = useParams();
-  const { loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+  const { loading, error, data } = useQuery(QUERY_SINGLE_EVENT, {
     variables: { eventId: eventId },
   });
+  
+  if (error) {
+    console.log('Error with eventID', error);
+    console.log('GraphQL Errors:', error.graphQLErrors);
+    console.log('Network Errors:', error.networkError.result.errors);
+  }
 
   const event = data?.event || {};
-
-  console.log("Event: " + event.location)
   const finalEvent = event.location
 
   useEffect(() => {
@@ -50,7 +54,7 @@ const Events = () => {
           }
         });
     }
-  }, [event.location]);
+  }, [event.location, finalEvent]);
 
   console.log(locationData);
 
@@ -93,7 +97,7 @@ const Events = () => {
                 <div className="detailsSection">
                   <h4 className="text-left">Details</h4>
                   <p>700 people attending</p>
-                  <p>Event Hosted By: {event.organizer} </p>
+                  <p>Event Hosted By: {event.organizer ? event.organizer.username : 'Unknown'} </p>
                   <p>{event.description} </p>
                 </div>
 

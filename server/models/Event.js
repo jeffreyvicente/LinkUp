@@ -15,12 +15,7 @@ const eventSchema = new Schema({
         required: true
     },
     date: {
-        type: Date,
-        required: true
-    },
-    type: {
         type: String,
-        enum: ['party', 'music', 'food', 'others'],
         required: true
     },
     organizer: {

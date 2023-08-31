@@ -24,6 +24,22 @@ export const CREATE_USER = gql`
   }
 `;
 
+export const CREATE_EVENT = gql`
+   mutation createEvent($title: String!, $description: String!, $location: String!, $date: String!) {
+    createEvent(title: $title, description: $description, location: $location, date: $date) {
+     _id
+     title
+     description
+     location
+     date
+     organizer {
+      _id
+      username
+     }
+    }
+   }
+`;
+
 export const ADD_THOUGHT = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {
@@ -54,3 +70,4 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+

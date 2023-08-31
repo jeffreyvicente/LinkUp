@@ -4,7 +4,6 @@
         "description": "A grand music fest with top artists.",
         "location": "Central Park, NY",
         "date": "2023-10-15T00:00:00.000Z",
-        "type": "music",
         "organizer": "jeff"
     },
     {
@@ -12,7 +11,6 @@
         "description": "Taste food from around the world.",
         "location": "Convention Center, LA",
         "date": "2023-11-01T00:00:00.000Z",
-        "type": "food",
         "organizer": "jeff"
     },
     {
@@ -20,7 +18,6 @@
         "description": "Join us for this amazing music festival.",
         "location": "Chicago, Illinois",
         "date": "2023-09-28T00:00:00.000Z",
-        "type": "music",
         "organizer": "mark"
     },
     {
@@ -28,7 +25,6 @@
         "description": "Step into an enchanted garden for an evening of magical experiences.",
         "location": "Secret Garden Estate, San Francisco, CA",
         "date": "2023-06-27T00:00:00.000Z",
-        "type": "party",
         "organizer": "mark"
     }
 ]
