@@ -7,6 +7,8 @@ import AuthModal from './AuthModal';
 import personCircle from 'bootstrap-icons/icons/person-circle.svg';
 import logoutIcon from 'bootstrap-icons/icons/box-arrow-right.svg';
 import loginIcon from 'bootstrap-icons/icons/box-arrow-in-right.svg';
+import { Switch, Route, Link } from 'react-router-dom';
+
 function Navigation() {
     const [showModal, setShowModal] = useState(false);
     const [user, setUser] = useState(null);
@@ -54,7 +56,7 @@ function Navigation() {
             {
                 user ? (
                     <>
-                    <Nav.Link href={`/profiles/${user.username}`} className="NavLink">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
+                    <a href={`/profiles/${user.username}`} className="NavLink">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/></a>
                     <Nav.Link onClick={handleUserLogout} className="NavLink">Logout <img src={logoutIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
                     </>
                 ) : (

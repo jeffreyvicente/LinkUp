@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams , Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import Landing from '../components/Landing';
 import { CREATE_EVENT } from '../utils/mutations';
@@ -136,24 +136,28 @@ export default function Profile() {
                     <div className="col-sm-8">
                         <div className= 'currentEventSection'>
                             <h4>My Current Events</h4>
-                            <div className="list-group current-events">
-                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #1</button>
-                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #2</button>
-                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #3</button>
-                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #4</button>
-                                <button type="button" className="list-group-item list-group-item-action current-event"> Event #5</button>
+                            <div>
+                                {/* Map through user's events and create a button with a link for each event */}
+                                {user.events.map((event, index) => (
+                                    <Link to={`/events/${event._id}`}  key={index}>
+                                        <button className="list-group-item list-group-item-action current-event" type="button">{event.title}</button>
+                                    </Link>
+                                ))}
                             </div>
                         </div>
                        
                         <div className= 'pastEventSection pt-3'>
                             <h4>My Past Events</h4>
-                            <div className="list-group past-events">
-                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #1</button>
-                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #2</button>
-                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #3</button>
-                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #4</button>
-                                <button type="button" className="list-group-item list-group-item-action past-event"> Event #5</button>
+
+                            <div>
+                                {/* Map through user's events and create a button with a link for each event */}
+                                {user.events.map((event, index) => (
+                                    <Link to={`/events/${event._id}`}  key={index}>
+                                        <button className="list-group-item list-group-item-action past-event" type="button">{event.title}</button>
+                                    </Link>
+                                ))}
                             </div>
+                            
                         </div>
                     </div>                    
                 </div>
