@@ -1,4 +1,4 @@
-# Project III - LinkUp
+# LinkUp - an application designed to help people connect, interact, and collaborate through events
 
 ## Description
 The LinkUp App is a powerful and user-friendly social networking application designed to help people connect, interact, and collaborate with others who share common interests, hobbies, and goals. Whether you're looking to meet new friends, network with professionals, or join communities of like-minded individuals, the LinkUp App has you covered.
@@ -11,6 +11,7 @@ The LinkUp App is a powerful and user-friendly social networking application des
 - [Preview](#preview)
 - [Features](#features)
 - [Technology Used](#technologies-used)
+- [Contributors](#contributors)
 
 
 ## Installation
@@ -31,7 +32,13 @@ So that I can connect with others, discover new trails, and plan exciting hiking
 
 ## Acceptance Criteria
 ```
+Application uses React for the front end.
 
+Application has a GraphQL API with a Node.js and Express.js server, and uses queries and mutations for retrieving, adding, updating, and deleting data.
+
+Application uses MongoDB and the Mongoose ODM for the database and protects sensitive API key information on the server.
+
+Application includes user authentication using JWT.
 ```
 
 ## Preview
@@ -63,3 +70,9 @@ The LinkUp application has the following pages:
 - React
 - Bootstrap
 - Node
+
+## Contributors
+- Jeffrey Vicente [https://github.com/jeffreyvicente](https://github.com/jeffreyvicente)
+- David Gaspard [https://github.com/Gixxer777](https://github.com/Gixxer777)
+- Seth Schoenert [https://github.com/sethschnrt](https://github.com/sethschnrt)
+- Richard Nguyen [https://github.com/rxn3202](https://github.com/rxn3202)
