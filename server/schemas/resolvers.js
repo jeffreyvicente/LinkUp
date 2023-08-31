@@ -9,7 +9,7 @@ const resolvers = {
       return Event.find(params).sort({ createdAt: -1 });
     },
     event: async (parent, { eventId }) => {
-      return Event.findOne({ _id: eventId });
+      return Event.findOne({ _id: eventId }).populate('organizer');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("events");
