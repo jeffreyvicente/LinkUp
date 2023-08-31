@@ -28,7 +28,6 @@ const Events = () => {
 
   const event = data?.event || {};
   const finalEvent = event.location
-
   useEffect(() => {
     if (event.location) {
       const locationSearch = replaceSpacesWithPlus(finalEvent);
