@@ -40,7 +40,7 @@ function Navigation() {
         setUser(null);
         localStorage.removeItem('user');
     };
-
+console.log(user.username);
     return (
         <Navbar expand="lg" className="Navigation">
             <Container>
