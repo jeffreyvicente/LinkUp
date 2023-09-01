@@ -17,6 +17,9 @@ function Navigation() {
         const userData = localStorage.getItem('user');
         if (userData) {
           try {
+            console.log(JSON.parse(userData));
+          
+          
             setUser(JSON.parse(userData));
           } catch (error) {
           }
@@ -40,7 +43,7 @@ function Navigation() {
         setUser(null);
         localStorage.removeItem('user');
     };
-console.log(user.username);
+
     return (
         <Navbar expand="lg" className="Navigation">
             <Container>
