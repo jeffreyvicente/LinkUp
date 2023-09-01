@@ -56,10 +56,10 @@ function Navigation() {
             {
                 user ? (
                     <>
-                    <a href={`/profiles/${user.username}`} className="NavLink Nav-Username">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/></a>
+                    <Nav.Link to={`/profiles/${user.username}`} className="NavLink Nav-Username">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/> </Nav.Link>
                     <Nav.Link onClick={handleUserLogout} className="NavLink">Logout <img src={logoutIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
                     </>
-                ) : (
+                ) : ( 
                     <Nav.Link onClick={handleOpenModal} className="NavLink">Login | Sign Up <img src={loginIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
                 )
             }
