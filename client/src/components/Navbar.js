@@ -17,6 +17,9 @@ function Navigation() {
         const userData = localStorage.getItem('user');
         if (userData) {
           try {
+            console.log(JSON.parse(userData));
+          
+          
             setUser(JSON.parse(userData));
           } catch (error) {
           }
@@ -56,10 +59,10 @@ function Navigation() {
             {
                 user ? (
                     <>
-                    <a href={`/profiles/${user.username}`} className="NavLink Nav-Username">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/></a>
+                    <a href={`/profiles/${user.username}`} className="NavLink Nav-Username">{user.username} <img src={personCircle} alt="User" width="20" height="16" className='invert-icon'/> </a>
                     <Nav.Link onClick={handleUserLogout} className="NavLink">Logout <img src={logoutIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
                     </>
-                ) : (
+                ) : ( 
                     <Nav.Link onClick={handleOpenModal} className="NavLink">Login | Sign Up <img src={loginIcon} alt="User" width="20" height="16" className='invert-icon'/></Nav.Link>
                 )
             }
